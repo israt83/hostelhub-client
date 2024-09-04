@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const Card = ({ room }) => {
+const Card = ({ meal }) => {
   return (
-    <Link to={`/room/${room?._id}`} className='col-span-1 cursor-pointer group'>
-      <div className='flex flex-col gap-2 w-full'>
+    <Link to={`/meal/${meal?._id}`} className='col-span-1 cursor-pointer group'>
+      <div className='flex flex-col  w-full'>
         <div
           className='
               aspect-square 
-              w-full 
+              w-56
               relative 
               overflow-hidden 
               rounded-xl
@@ -22,8 +22,8 @@ const Card = ({ room }) => {
                 group-hover:scale-110 
                 transition
               '
-            src={room?.image}
-            alt='Room'
+            src={meal?.image}
+            alt='meal'
           />
           <div
             className='
@@ -33,11 +33,11 @@ const Card = ({ room }) => {
             '
           ></div>
         </div>
-        <div className='font-semibold text-lg'>{room?.location}</div>
-        <div className='font-light text-neutral-500'>5 nights .</div>
-        <div className='flex flex-row items-center gap-1'>
-          <div className='font-semibold'>$ {room?.price}</div>
-          <div className='font-light'>night</div>
+        {/* <div className='font-semibold text-lg'>{meal?.location}</div> */}
+        <div className='font-light text-neutral-500'>{meal.title}</div>
+        <div className='flex flex-row items-center gap-5'>
+          <div className='font-semibold'> {meal?.price}</div>
+          <div className='font-light'>{meal.rating}</div>
         </div>
       </div>
     </Link>

@@ -6,37 +6,39 @@ import { useQuery } from '@tanstack/react-query'
 import useAxiosCommon from '../../hooks/useAxiosCommon'
 import { useSearchParams } from 'react-router-dom'
 
-const Rooms = () => {
+
+const Meals = () => {
   const axiosCommon = useAxiosCommon()
   // eslint-disable-next-line no-unused-vars
   const [params, setParams] = useSearchParams()
   const category = params.get('category')
 
   console.log(category)
-  const { data: rooms = [], isLoading } = useQuery({
-    queryKey: ['rooms', category],
+  const { data: meals = [], isLoading } = useQuery({
+    queryKey: ['meals', category],
     queryFn: async () => {
-      const { data } = await axiosCommon.get(`/rooms?category=${category}`)
+      const { data } = await axiosCommon.get(`/meals?category=${category}`)
 
       return data
     },
   })
 
+
   if (isLoading) return <LoadingSpinner />
 
   return (
     <Container>
-      {rooms && rooms.length > 0 ? (
-        <div className='pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8'>
-          {rooms.map(room => (
-            <Card key={room._id} room={room} />
+      {meals && meals.length > 0 ? (
+        <div className='pt-12 grid grid-cols-1 sm:grid-cols-1  lg:grid-cols-3  gap-8'>
+          {meals.map(meal => (
+            <Card key={meal._id} meal={meal} />
           ))}
         </div>
       ) : (
-        <div className='flex items-center justify-center min-h-[calc(100vh-300px)]'>
+        <div className='flex items-center justify-center min-h-[calc(100vh-300px)] '>
           <Heading
             center={true}
-            title='No Rooms Available In This Category!'
+            title='No Meals Available In This Category!'
             subtitle='Please Select Other Categories.'
           />
         </div>
@@ -45,4 +47,4 @@ const Rooms = () => {
   )
 }
 
-export default Rooms
+export default Meals
