@@ -1,38 +1,26 @@
-import { TbBeach, TbMountain,  } from 'react-icons/tb'
-import {
- 
-  
-  GiWindmill,
-} from 'react-icons/gi'
 
-import { IoDiamond } from 'react-icons/io5'
-import { MdOutlineVilla } from 'react-icons/md'
+
 
 export const categories = [
   {
-    label: 'Beach',
-    icon: TbBeach,
-    description: 'This property is close to the beach!',
+    label: 'Breakfast',
+    
+    description: 'Delicious breakfast options!',
   },
   {
-    label: 'Windmills',
-    icon: GiWindmill,
-    description: 'This property is has windmills!',
+    label: 'Lunch',
+    // icon: TbLunch,
+    description: 'Tasty lunch meals!',
   },
   {
-    label: 'Modern',
-    icon: MdOutlineVilla,
-    description: 'This property is modern!',
+    label: 'Dinner',
+    // icon: TbDinner,
+    description: 'Hearty dinner options!',
   },
   {
-    label: 'Countryside',
-    icon: TbMountain,
-    description: 'This property is in the countryside!',
+    label: 'All Meals',
+    
+    description: 'All available meals!',
   },
- 
-  {
-    label: 'Lux',
-    icon: IoDiamond,
-    description: 'This property is brand new and luxurious!',
-  },
-]
+];
+

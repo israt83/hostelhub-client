@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
-
+import Categories from '../../components/Categories/Categories'
 import Carousel from '../../components/Banner/Carousel'
-import TabCategories from '../../components/TabCategorise/TabCategories'
+// import TabCategories from '../../components/TabCategorise/TabCategories'
 import Meals from '../../components/Home/Meals'
 
 const Home = () => {
@@ -12,7 +12,8 @@ const Home = () => {
       </Helmet>
       <Carousel></Carousel>
       {/* Categories section  */}
-      <TabCategories></TabCategories>
+      <Categories />
+      {/* <TabCategories></TabCategories> */}
       {/* Meals section */}
       <Meals></Meals>
     </div>
