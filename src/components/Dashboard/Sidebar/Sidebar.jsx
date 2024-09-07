@@ -65,15 +65,23 @@ const Sidebar = () => {
         <div>
           <div>
             <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto'>
-              <Link to='/'>
+            
+               
+              {/* Logo */}
+            <Link to="/">
+              <div className="flex -ml-8">
                 <img
-                  // className='hidden md:block'
-                  src='https://i.ibb.co/4ZXzmq5/logo.png'
-                  alt='logo'
-                  width='100'
-                  height='100'
+                  src="src/assets/images/logo.png"
+                  alt="logo"
+                  width="120"
+                  height="100"
                 />
-              </Link>
+                <p className="-ml-6 mt-1 text-xl text-black uppercase">
+                  <span className="text-2xl text-orange-600">H</span>ostel
+                  <span className="text-2xl text-orange-600">H</span>ub
+                </p>
+              </div>
+            </Link>
             </div>
           </div>
 

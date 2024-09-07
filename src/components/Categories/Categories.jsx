@@ -14,6 +14,7 @@ const Categories = () => {
         {categories.map(item => (
           <CategoryBox key={item.label} label={item.label} icon={item.icon} />
         ))}
+
       </div>
     </Container>
   )

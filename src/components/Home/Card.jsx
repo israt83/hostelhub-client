@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 const Card = ({ meal }) => {
   return (
-    <Link to={`/meal/${meal?._id}`} className='col-span-1 cursor-pointer group'>
-      <div className='flex flex-col  w-full'>
+    <Link to={`/meals/${meal?._id}`} className='col-span-1 cursor-pointer group'>
+      <div className='flex flex-col items-center'>
         <div
           className='
               aspect-square 
@@ -34,10 +34,20 @@ const Card = ({ meal }) => {
           ></div>
         </div>
         {/* <div className='font-semibold text-lg'>{meal?.location}</div> */}
-        <div className='font-light text-neutral-500'>{meal.title}</div>
-        <div className='flex flex-row items-center gap-5'>
+        <div className='font-bold py-3 text-neutral-500 text-start'>{meal.title}</div>
+        <div className='grid grid-cols-2 gap-20'>
           <div className='font-semibold'> {meal?.price}</div>
-          <div className='font-light'>{meal.rating}</div>
+          <div className='font-light'>
+          <div className='flex gap-1'>
+          <svg
+            className=" w-5 h-5 text-gray-700 fill-current dark:text-gray-300"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+          </svg>
+            <p className='-mb-2'>{meal.rating}</p>
+          </div>
+            </div>
         </div>
       </div>
     </Link>

@@ -3,6 +3,11 @@
 
 export const categories = [
   {
+    label: 'All Meals',
+    
+    description: 'All available meals!',
+  },
+  {
     label: 'Breakfast',
     
     description: 'Delicious breakfast options!',
@@ -17,10 +22,6 @@ export const categories = [
     // icon: TbDinner,
     description: 'Hearty dinner options!',
   },
-  {
-    label: 'All Meals',
-    
-    description: 'All available meals!',
-  },
+ 
 ];
 

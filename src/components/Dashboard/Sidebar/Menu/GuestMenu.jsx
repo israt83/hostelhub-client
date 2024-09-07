@@ -42,8 +42,8 @@ const GuestMenu = () => {
     <>
       <MenuItem
         icon={BsFingerprint}
-        label='My Bookings'
-        address='my-bookings'
+        label='My Requested Meals'
+        address='my-requested-meals'
       />
 
       {role === 'guest' && (

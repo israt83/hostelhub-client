@@ -14,9 +14,9 @@ const MyBookings = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ['my-bookings', user?.email],
+    queryKey: ['my-requested-meals', user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/my-bookings/${user?.email}`)
+      const { data } = await axiosSecure.get(`/my-requested-meals/${user?.email}`)
 
       return data
     },

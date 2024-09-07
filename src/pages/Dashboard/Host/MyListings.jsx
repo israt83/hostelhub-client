@@ -25,7 +25,7 @@ const MyListings = () => {
   //   delete
   const { mutateAsync } = useMutation({
     mutationFn: async id => {
-      const { data } = await axiosSecure.delete(`/room/${id}`)
+      const { data } = await axiosSecure.delete(`/meals/${id}`)
       return data
     },
     onSuccess: data => {

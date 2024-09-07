@@ -1,0 +1,6 @@
+/* src/styles/RatingStars.css */
+
+.rating-stars {
+    display: flex;
+    gap: 4px;
+}
