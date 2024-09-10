@@ -18,6 +18,7 @@ import MyBookings from '../pages/Dashboard/Guest/MyBookings'
 import ManageBookings from '../pages/Dashboard/Host/ManageBookings'
 import MealDetails from '../pages/MealDetails/MealDetails'
 import AddMeal from '../pages/Dashboard/Admin/AddMeal'
+import AllMeals from '../components/AllMeals/AllMeals'
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/meals',
+        element: <AllMeals />,
       },
       {
         path: '/meals/:id',
