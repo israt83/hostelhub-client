@@ -14,10 +14,10 @@ const AdminMenu = () => {
       <MenuItem icon={FaUserCog} label="Manage Users" address="manage-users" />
 
       <MenuItem icon={FaUtensils} label="Add Meal" address="add-meal" />
-      <MenuItem icon={FaListAlt} label="All Meals" address="" />
-      <MenuItem icon={FaStar} label="All Reviews" address="manage-users" />
-      <MenuItem icon={FaConciergeBell}label="Serve Meals"address="manage-users"/>
-      <MenuItem icon={FaCalendarAlt}label="Upcoming Meals" address="manage-users"/>
+      <MenuItem icon={FaListAlt} label="All Meals" address="all-meal" />
+      <MenuItem icon={FaStar} label="All Reviews" address="all-reviews" />
+      <MenuItem icon={FaConciergeBell}label="Serve Meals"address="serve-meals"/>
+      <MenuItem icon={FaCalendarAlt}label="Upcoming Meals" address="upcoming-meals"/>
     </>
   );
 };

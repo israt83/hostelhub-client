@@ -6,7 +6,8 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import toast from 'react-hot-toast'
 import useAuth from '../../../hooks/useAuth'
 const UserDataRow = ({ user, refetch }) => {
-  const { user: loggedInUser } = useAuth()
+  const { user: loggedInUser } = useAuth() 
+ 
 
   const [isOpen, setIsOpen] = useState(false)
   const axiosSecure = useAxiosSecure()
@@ -16,8 +17,8 @@ const UserDataRow = ({ user, refetch }) => {
         `/users/update/${user?.email}`,
         role
       )
-      return data
-      // console.log(data);
+      // return data
+      console.log(data);
     },
     onSuccess: data => {
       refetch()
@@ -33,7 +34,7 @@ const UserDataRow = ({ user, refetch }) => {
       toast.error('Action Not Allowed')
       return setIsOpen(false)
     }
-
+ 
     const userRole = {
       role: selected,
       status: 'Verified',
@@ -49,7 +50,9 @@ const UserDataRow = ({ user, refetch }) => {
   return (
     <tr>
       {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>{user?.name}</p>
+        <p className='text-gray-900 whitespace-no-wrap'>
+        {user?.displayName}
+        </p>
       </td> */}
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>{user?.email}</p>

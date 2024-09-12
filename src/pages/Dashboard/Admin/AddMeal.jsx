@@ -132,23 +132,28 @@ const AddMeal = () => {
     setLoading(true)
     const form = e.target
     const title = form.title.value
-    const adminName = form.adminName.value
+ 
     const description = form.description.value
     const ingredients = form.ingredients.value
     const postTime = form.postTime.value
     const rating = form.rating.value
+    const price = form.price.value
     const image = form.image.files[0]
     const reviews = form.reviews.value
+    const category = form.category.value
 
     const mealData = {
       title,
-      adminName,
+      
       description,
       ingredients,
       postTime,
       rating,
       reviews,
+      price,
+      category,
       adminEmail: user?.email,
+      adminName: user?.displayName,
     }
 
     try {

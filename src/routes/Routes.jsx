@@ -19,6 +19,7 @@ import ManageBookings from '../pages/Dashboard/Host/ManageBookings'
 import MealDetails from '../pages/MealDetails/MealDetails'
 import AddMeal from '../pages/Dashboard/Admin/AddMeal'
 import AllMeals from '../components/AllMeals/AllMeals'
+import AllMeal from '../pages/Dashboard/Admin/AllMeal'
 
 export const router = createBrowserRouter([
   {
@@ -98,6 +99,16 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <AddMeal />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'all-meal',
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AllMeal />
             </AdminRoute>
           </PrivateRoute>
         ),

@@ -3,7 +3,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import useAuth from '../../../hooks/useAuth'
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
-import RoomDataRow from '../../../components/Dashboard/TableRows/RoomDataRows'
+import RoomDataRow from '../../../components/Dashboard/TableRows/MealDataRows'
 import toast from 'react-hot-toast'
 const MyListings = () => {
   const { user } = useAuth()
