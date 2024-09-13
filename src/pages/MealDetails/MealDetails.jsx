@@ -111,13 +111,14 @@
 
 import Container from "../../components/Shared/Container";
 import Heading from "../../components/Shared/Heading";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import useAxiosCommon from "../../hooks/useAxiosCommon";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import RatingStars from "./RatingStars";
+import { AiOutlineLike } from "react-icons/ai";
 
 const MealDetails = () => {
   const { id } = useParams();
@@ -138,17 +139,17 @@ const MealDetails = () => {
   });
 
   // Like meal mutation
-  // const likeMutation = useMutation(
-  //   async () => {
-  //     return axiosCommon.post(`/meals/${id}/like`)
-  //   },
-  //   {
-  //     onSuccess: () => {
-  //       setLikeCount(prev => prev + 1)
-  //       queryClient.invalidateQueries(['meals', id]) // Refetch data after like
-  //     },
-  //   }
-  // )
+  const likeMutation = useMutation(
+    async () => {
+      return axiosCommon.post(`/meals/${id}/like`)
+    },
+    {
+      onSuccess: () => {
+        setLikeCount(prev => prev + 1)
+        queryClient.invalidateQueries(['meals', id]) // Refetch data after like
+      },
+    }
+  )
 
   // Meal request mutation
   // const mealRequestMutation = useMutation(
@@ -169,13 +170,13 @@ const MealDetails = () => {
   //   }
   // )
 
-  // const handleLike = () => {
-  //   if (isAuthenticated) {
-  //     likeMutation.mutate()
-  //   } else {
-  //     alert('You need to login to like this meal.')
-  //   }
-  // }
+  const handleLike = () => {
+    if (isAuthenticated) {
+      likeMutation.mutate()
+    } else {
+      alert('You need to login to like this meal.')
+    }
+  }
 
   // const handleMealRequest = () => {
   //   if (isAuthenticated) {
@@ -264,13 +265,17 @@ const MealDetails = () => {
                 {/* Like Button */}
                 <div>
                   <button
-                    // onClick={handleLike}
+                  
+                    onClick={handleLike}
                     className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded ${
                       isAuthenticated ? "" : "opacity-50 cursor-not-allowed"
                     }`}
                     disabled={!isAuthenticated}
                   >
-                    Like ({likeCount})
+                   <div className="flex gap-1">
+                   <AiOutlineLike className="mt-1" />
+                   ({likeCount})
+                   </div>
                   </button>
                 </div>
 

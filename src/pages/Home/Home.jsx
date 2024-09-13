@@ -3,6 +3,8 @@ import Categories from '../../components/Categories/Categories'
 import Carousel from '../../components/Banner/Carousel'
 // import TabCategories from '../../components/TabCategorise/TabCategories'
 import Meals from '../../components/Home/Meals'
+import MembershipCards from '../../components/MembershipCards/MembershipCards'
+import Contact from '../../components/Contact/Contact'
 
 const Home = () => {
   return (
@@ -16,6 +18,8 @@ const Home = () => {
       {/* <TabCategories></TabCategories> */}
       {/* Meals section */}
       <Meals></Meals>
+      <MembershipCards></MembershipCards>
+      <Contact></Contact>
     </div>
   )
 }

@@ -20,6 +20,7 @@ import MealDetails from '../pages/MealDetails/MealDetails'
 import AddMeal from '../pages/Dashboard/Admin/AddMeal'
 import AllMeals from '../components/AllMeals/AllMeals'
 import AllMeal from '../pages/Dashboard/Admin/AllMeal'
+import CheckoutPage from '../components/MembershipCards/CheckoutPage'
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MealDetails></MealDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/checkout/:package_name',
+        element: (
+          <PrivateRoute>
+            <CheckoutPage/>
           </PrivateRoute>
         ),
       },
