@@ -1,4 +1,5 @@
 import { BsFingerprint } from 'react-icons/bs'
+// import { BsFingerprint } from "react-icons/bs"; 
 import { GrUserAdmin } from 'react-icons/gr'
 import { useState } from 'react'
 import MenuItem from './/MenuItem'
@@ -40,10 +41,20 @@ const GuestMenu = () => {
   }
   return (
     <>
+     <MenuItem
+        icon={BsFingerprint}
+        label="Requested Meals"
+        address="requested-meals"
+      />
       <MenuItem
         icon={BsFingerprint}
-        label='My Requested Meals'
-        address='my-requested-meals'
+        label="My Reviews"
+        address="my-reviews"
+      />
+      <MenuItem
+        icon={BsFingerprint}
+        label="Payment History"
+        address="payment-history"
       />
 
       {role === 'guest' && (

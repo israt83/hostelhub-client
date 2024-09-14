@@ -250,15 +250,6 @@ const Navbar = () => {
                 <AiOutlineBell size={24} />
               </div>
 
-              {/* Become A Host btn */}
-              {/* <div className="hidden md:block">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full transition"
-                >
-                  Host your home
-                </button>
-              </div> */}
 
               {/* Modal */}
               <HostModal
@@ -273,7 +264,7 @@ const Navbar = () => {
                 className="p-4 md:py-1 md:px-2 flex flex-row items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
               >
                 {/* <AiOutlineMenu /> */}
-                <p>Join Us</p>
+                <p> {user?'':'Join Us'} </p>
                 <div className="hidden md:block">
                   {/* Avatar */}
                   <img

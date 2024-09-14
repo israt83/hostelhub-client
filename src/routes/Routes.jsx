@@ -22,6 +22,7 @@ import AllMeals from '../components/AllMeals/AllMeals'
 import AllMeal from '../pages/Dashboard/Admin/AllMeal'
 import CheckoutPage from '../components/MembershipCards/CheckoutPage'
 import UpcomingMeals from '../components/UpcomingMeals/UpcomingMeals'
+import Reviews from '../pages/MealDetails/Reviews'
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: '/upcoming-meals',
         element: <UpcomingMeals/>,
+      },
+      {
+        path: '/meals/:id/review',
+        element: <Reviews/>,
       },
       {
         path: '/checkout/:package_name',
