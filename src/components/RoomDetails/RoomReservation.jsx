@@ -90,3 +90,4 @@ RoomReservation.propTypes = {
 }
 
 export default RoomReservation
+

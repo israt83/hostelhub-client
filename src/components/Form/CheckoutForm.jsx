@@ -103,7 +103,7 @@ const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
         console.log(data)
 
         // 3. change room status to booked in db
-        await axiosSecure.patch(`/room/status/${bookingInfo?._id}`, {
+        await axiosSecure.patch(`/meals/status/${bookingInfo?._id}`, {
           status: true,
         })
 
@@ -174,3 +174,5 @@ CheckoutForm.propTypes = {
 }
 
 export default CheckoutForm
+
+

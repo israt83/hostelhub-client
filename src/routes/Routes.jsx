@@ -24,6 +24,7 @@ import CheckoutPage from '../components/MembershipCards/CheckoutPage'
 import UpcomingMeals from '../components/UpcomingMeals/UpcomingMeals'
 import Reviews from '../pages/MealDetails/Reviews'
 
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -66,6 +67,7 @@ export const router = createBrowserRouter([
   },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },
+
   {
     path: '/dashboard',
     element: (

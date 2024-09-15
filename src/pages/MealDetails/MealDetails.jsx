@@ -294,18 +294,23 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import RatingStars from "./RatingStars";
 import { AiOutlineLike } from "react-icons/ai";
+import Swal from "sweetalert2";
+import { axiosSecure } from "../../hooks/useAxiosSecure";
+import useMeal from "../../hooks/useMeal";
+
 
 
 
 const MealDetails = () => {
   const { id } = useParams();
   const axiosCommon = useAxiosCommon();
-  const { user, isAuthenticated } = useAuth();
+  const { user} = useAuth();
   const queryClient = useQueryClient();
   const [likeCount, setLikeCount] = useState(0);
 
   const [isLiked, setIsLiked] = useState(false);
-
+  const [, refetch] = useMeal();
+  
   // Fetch meal details
   const { data: meal = {}, isLoading } = useQuery({
     queryKey: ["meals", id],
@@ -342,27 +347,58 @@ const MealDetails = () => {
       console.error("Error updating likes:", error);
     }
   };
-  const handleMealRequest = async () => {
-    if (!user || !isAuthenticated) {
-      alert(
-        "You need to log in and have a package subscription to request this meal."
-      );
-      return;
-    }
 
-    try {
-      const response = await axiosCommon.post(`/meals/${id}/request`, {
-        userId: user.id,
-        mealId: meal.id,
-        status: "pending", // Initial request status
+
+
+const handleMealRequest = () => {
+  if (user && user.email) {
+    // Send cart item to the database
+    const cartItem = {
+      menuId: id,
+      email: user.email,
+      name: meal?.title, 
+      image: meal?.image, 
+      price: meal?.price, 
+      likes: likeCount, 
+      reviews: meal?.reviews,
+      status: 'pending', 
+    };
+
+    axiosSecure.post('/request-meal', cartItem)
+      .then(res => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${meal?.title} added to your Reaquest Meal`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+          // Refetch cart to update the cart items count
+          refetch();
+        }
+      })
+      .catch(error => {
+        console.error('Error adding meal to cart:', error);
       });
+  } else {
+    Swal.fire({
+      title: "You are not Logged In",
+      text: "Please login to add to the cart?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, login!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Send the user to the login page
+        navigator('/login', { state: { from: location } });
+      }
+    });
+  }
+};
 
-      alert("Meal request sent successfully. Status: Pending");
-    } catch (error) {
-      console.error("Error requesting meal:", error);
-      alert("There was an error with your request.");
-    }
-  };
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -438,21 +474,20 @@ const MealDetails = () => {
                 {/* Meal Request Button */}
                 <div>
                   <button
-                    onClick={handleMealRequest}
-                    className={`mt-4 px-4 py-2 bg-orange-500 text-white rounded ${
-                      !isAuthenticated ? "cursor-not-allowed" : ""
-                    }`}
-                    disabled={!isAuthenticated}
-                  >
+                   onClick={handleMealRequest}
+                    className='mt-4 px-4 py-2 bg-orange-500 text-white rounded '
+                    >
                     Request Meal
                   </button>
                 </div>
+                <div className='md:col-span-3 order-first md:order-last mb-10'>
+              
+             
+            </div>
               </div>
             </div>
             
-            <div className="md:col-span-3 order-first md:order-last mb-10">
-              {/* Additional content if needed */}
-            </div>
+           
           </div>
           {/* <Reviews id={id} existingReviews={meal.reviews} /> */}
           <Link to="review">Write a Reviews</Link>
