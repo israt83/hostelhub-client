@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import { categories } from '../Categories/CategoriesData'
-import { DateRange } from 'react-date-range'
-const UpdateRoomForm = ({
+
+const UpdateMealForm = ({
   handleSubmit,
   handleImage,
-  setRoomData,
-  roomData,
-  handleDates,
-  dates,
+  setMealData,
+  mealData,
+
 }) => {
   return (
     <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
@@ -22,9 +21,9 @@ const UpdateRoomForm = ({
               name='location'
               id='location'
               type='text'
-              value={roomData?.location}
+              value={mealData?.location}
               onChange={e =>
-                setRoomData({ ...roomData, location: e.target.value })
+                setMealData({ ...mealData, location: e.target.value })
               }
               placeholder='Location'
               required
@@ -39,9 +38,9 @@ const UpdateRoomForm = ({
               name='title'
               id='title'
               type='text'
-              value={roomData?.title}
+              value={mealData?.title}
               onChange={e =>
-                setRoomData({ ...roomData, title: e.target.value })
+                setMealData({ ...mealData, title: e.target.value })
               }
               placeholder='Title'
               required
@@ -54,9 +53,9 @@ const UpdateRoomForm = ({
             </label>
             <select
               required
-              value={roomData?.category}
+              value={mealData?.category}
               onChange={e =>
-                setRoomData({ ...roomData, category: e.target.value })
+                setMealData({ ...mealData, category: e.target.value })
               }
               className='w-full px-4 py-3 border-rose-300 focus:outline-rose-500 rounded-md'
               name='category'
@@ -75,13 +74,7 @@ const UpdateRoomForm = ({
             </label>
             <div className='flex justify-center pt-2'>
               {/* Calender */}
-              <DateRange
-                rangeColors={['#F43F5E']}
-                editableDateInputs={true}
-                onChange={item => handleDates(item)}
-                moveRangeOnFirstSelection={false}
-                ranges={[dates]}
-              />
+              
             </div>
           </div>
 
@@ -114,9 +107,9 @@ const UpdateRoomForm = ({
                 className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
                 name='price'
                 id='price'
-                value={roomData?.price}
+                value={mealData?.price}
                 onChange={e =>
-                  setRoomData({ ...roomData, price: e.target.value })
+                  setMealData({ ...mealData, price: e.target.value })
                 }
                 type='number'
                 placeholder='Price'
@@ -128,58 +121,11 @@ const UpdateRoomForm = ({
               <label htmlFor='guest' className='block text-gray-600'>
                 Total guest
               </label>
-              <input
-                className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                name='total_guest'
-                id='guest'
-                value={roomData?.guests}
-                onChange={e =>
-                  setRoomData({ ...roomData, guests: e.target.value })
-                }
-                type='number'
-                placeholder='Total guest'
-                required
-              />
+             
             </div>
           </div>
 
-          <div className='flex justify-between gap-2'>
-            <div className='space-y-1 text-sm'>
-              <label htmlFor='bedrooms' className='block text-gray-600'>
-                Bedrooms
-              </label>
-              <input
-                className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                name='bedrooms'
-                id='bedrooms'
-                value={roomData?.bedrooms}
-                onChange={e =>
-                  setRoomData({ ...roomData, bedrooms: e.target.value })
-                }
-                type='number'
-                placeholder='Bedrooms'
-                required
-              />
-            </div>
-
-            <div className='space-y-1 text-sm'>
-              <label htmlFor='bathrooms' className='block text-gray-600'>
-                Bathrooms
-              </label>
-              <input
-                className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                name='bathrooms'
-                id='bathrooms'
-                value={roomData?.bathrooms}
-                onChange={e =>
-                  setRoomData({ ...roomData, bathrooms: e.target.value })
-                }
-                type='number'
-                placeholder='Bathrooms'
-                required
-              />
-            </div>
-          </div>
+          
 
           <div className='space-y-1 text-sm'>
             <label htmlFor='description' className='block text-gray-600'>
@@ -188,9 +134,9 @@ const UpdateRoomForm = ({
 
             <textarea
               id='description'
-              value={roomData?.description}
+              value={mealData?.description}
               onChange={e =>
-                setRoomData({ ...roomData, description: e.target.value })
+                setMealData({ ...mealData, description: e.target.value })
               }
               className='block rounded-md focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 '
               name='description'
@@ -208,5 +154,4 @@ const UpdateRoomForm = ({
     </div>
   )
 }
-
-export default UpdateRoomForm
+export default UpdateMealForm;

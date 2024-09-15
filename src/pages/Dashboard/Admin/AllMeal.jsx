@@ -136,7 +136,7 @@
 // export default AllMeal
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner';
 import toast from 'react-hot-toast';
 import useAuth from '../../../hooks/useAuth';
@@ -180,7 +180,28 @@ const AllMeal = () => {
     setSortBy(e.target.value);
     refetch();
   };
+  //   delete
+  const { mutateAsync } = useMutation({
+    mutationFn: async id => {
+      const { data } = await axiosSecure.delete(`/meals/${id}`)
+      return data
+    },
+    onSuccess: data => {
+      console.log(data)
+      refetch()
+      toast.success('Successfully deleted.')
+    },
+  })
 
+  //  Handle Delete
+  const handleDelete = async id => {
+    console.log(id)
+    try {
+      await mutateAsync(id)
+    } catch (err) {
+      console.log(err)
+    }
+  }
   if (isLoading) return <LoadingSpinner />;
 
   return (
@@ -234,7 +255,7 @@ const AllMeal = () => {
                 </thead>
                 <tbody>
                   {meals.map((meal) => (
-                    <MealDataRow key={meal._id} meal={meal} refetch={refetch} />
+                    <MealDataRow key={meal._id} meal={meal} refetch={refetch} handleDelete={handleDelete}/>
                   ))}
                 </tbody>
               </table>

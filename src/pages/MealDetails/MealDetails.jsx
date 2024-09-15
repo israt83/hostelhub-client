@@ -294,7 +294,8 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import RatingStars from "./RatingStars";
 import { AiOutlineLike } from "react-icons/ai";
-import Reviews from "./Reviews";
+
+
 
 const MealDetails = () => {
   const { id } = useParams();
@@ -302,7 +303,7 @@ const MealDetails = () => {
   const { user, isAuthenticated } = useAuth();
   const queryClient = useQueryClient();
   const [likeCount, setLikeCount] = useState(0);
-  
+
   const [isLiked, setIsLiked] = useState(false);
 
   // Fetch meal details
@@ -339,6 +340,27 @@ const MealDetails = () => {
       queryClient.invalidateQueries(["meals", id]);
     } catch (error) {
       console.error("Error updating likes:", error);
+    }
+  };
+  const handleMealRequest = async () => {
+    if (!user || !isAuthenticated) {
+      alert(
+        "You need to log in and have a package subscription to request this meal."
+      );
+      return;
+    }
+
+    try {
+      const response = await axiosCommon.post(`/meals/${id}/request`, {
+        userId: user.id,
+        mealId: meal.id,
+        status: "pending", // Initial request status
+      });
+
+      alert("Meal request sent successfully. Status: Pending");
+    } catch (error) {
+      console.error("Error requesting meal:", error);
+      alert("There was an error with your request.");
     }
   };
 
@@ -416,8 +438,9 @@ const MealDetails = () => {
                 {/* Meal Request Button */}
                 <div>
                   <button
+                    onClick={handleMealRequest}
                     className={`mt-4 px-4 py-2 bg-orange-500 text-white rounded ${
-                      isAuthenticated ? "" : " cursor-not-allowed"
+                      !isAuthenticated ? "cursor-not-allowed" : ""
                     }`}
                     disabled={!isAuthenticated}
                   >
@@ -426,15 +449,14 @@ const MealDetails = () => {
                 </div>
               </div>
             </div>
-
+            
             <div className="md:col-span-3 order-first md:order-last mb-10">
               {/* Additional content if needed */}
             </div>
           </div>
           {/* <Reviews id={id} existingReviews={meal.reviews} /> */}
-        <Link to='review'>Write a Reviews</Link>
-        <p>{meal.reviews}</p>
-
+          <Link to="review">Write a Reviews</Link>
+          <p>{meal.reviews}</p>
         </div>
       )}
     </Container>

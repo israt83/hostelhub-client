@@ -8,20 +8,19 @@ import {
   DialogTitle,
 } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import UpdateRoomForm from '../Form/UpdateRoomForm'
+
 import useAxiosSecure from '../../hooks/useAxiosSecure'
 import { imageUpload } from '../../api/utils'
 import toast from 'react-hot-toast'
+import UpdateMealForm from '../Form/UpdateMealForm'
 
-const UpdateRoomModal = ({ setIsEditModalOpen, isOpen, room, refetch }) => {
+
+
+const UpdateMealModal = ({ setIsEditModalOpen, isOpen,meal, refetch }) => {
   const axiosSecure = useAxiosSecure()
   const [loading, setLoading] = useState(false)
-  const [roomData, setRoomData] = useState(room)
-  const [dates, setDates] = useState({
-    startDate: new Date(room?.from),
-    endDate: new Date(room?.to),
-    key: 'selection',
-  })
+  const [mealData, setMealData] = useState(meal)
+ 
 
   //   handle Image update
   const handleImage = async image => {
@@ -30,7 +29,7 @@ const UpdateRoomModal = ({ setIsEditModalOpen, isOpen, room, refetch }) => {
       // upload image
       const image_url = await imageUpload(image)
       console.log(image_url)
-      setRoomData({ ...roomData, image: image_url })
+      setMealData({ ...mealData, image: image_url })
       setLoading(false)
     } catch (err) {
       console.log(err)
@@ -39,25 +38,18 @@ const UpdateRoomModal = ({ setIsEditModalOpen, isOpen, room, refetch }) => {
     }
   }
 
-  //Date range handler
-  const handleDates = item => {
-    setDates(item.selection)
-    setRoomData({
-      ...roomData,
-      to: item.selection.endDate,
-      from: item.selection.startDate,
-    })
-  }
+
+  
   const handleSubmit = async e => {
     setLoading(true)
     e.preventDefault()
-    const updatedRoomData = Object.assign({}, roomData)
-    delete updatedRoomData._id
-    console.log(updatedRoomData)
+    const updateMealData = Object.assign({}, mealData)
+    delete updateMealData._id
+    console.log(updateMealData)
     try {
       const { data } = await axiosSecure.put(
-        `/room/update/${room?._id}`,
-        updatedRoomData
+        `/meals/update/${meal?._id}`,
+        updateMealData
       )
       console.log(data)
       refetch()
@@ -110,14 +102,13 @@ const UpdateRoomModal = ({ setIsEditModalOpen, isOpen, room, refetch }) => {
                 </DialogTitle>
                 <div className='mt-2 w-full'>
                   {/* Update room form */}
-                  <UpdateRoomForm
+                  <UpdateMealForm
                     handleSubmit={handleSubmit}
-                    dates={dates}
-                    handleDates={handleDates}
-                    roomData={roomData}
+                  
+                    mealData={mealData}
                     loading={loading}
                     handleImage={handleImage}
-                    setRoomData={setRoomData}
+                    setMealData={setMealData}
                   />
                 </div>
                 <hr className='mt-8 ' />
@@ -139,9 +130,9 @@ const UpdateRoomModal = ({ setIsEditModalOpen, isOpen, room, refetch }) => {
   )
 }
 
-UpdateRoomModal.propTypes = {
+UpdateMealModal.propTypes = {
   setIsEditModalOpen: PropTypes.func,
   isOpen: PropTypes.bool,
 }
 
-export default UpdateRoomModal
+export default UpdateMealModal
