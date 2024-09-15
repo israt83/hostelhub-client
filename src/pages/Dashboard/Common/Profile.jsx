@@ -93,7 +93,7 @@ const Profile = () => {
       <div className='bg-white shadow-lg rounded-2xl w-3/5'>
         <img
           alt='profile banner'
-          src='https://wallpapercave.com/wp/wp10784415.jpg'
+          src='https://plus.unsplash.com/premium_photo-1667912925305-629794bdb691?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           className='w-full mb-4 rounded-t-lg h-36'
         />
         <div className='flex flex-col items-center justify-center p-4 -mt-16'>
@@ -130,10 +130,10 @@ const Profile = () => {
               </p>
 
               <div>
-                <button className='bg-[#F43F5E] px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053] block mb-1'>
+                <button className='bg-[#FF3811] px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#FF3811] block mb-1'>
                   Update Profile
                 </button>
-                <button className='bg-[#F43F5E] px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053]'>
+                <button className='bg-[#FF3811] px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-[#FF3811]'>
                   Change Password
                 </button>
               </div>
