@@ -361,7 +361,7 @@ const handleMealRequest = () => {
       price: meal?.price, 
       likes: likeCount, 
       reviews: meal?.reviews,
-      status: 'pending', 
+      status: 'Requested', 
     };
 
     axiosSecure.post('/request-meal', cartItem)

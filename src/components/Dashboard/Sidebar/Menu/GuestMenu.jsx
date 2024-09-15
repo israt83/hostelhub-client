@@ -44,7 +44,7 @@ const GuestMenu = () => {
      <MenuItem
         icon={BsFingerprint}
         label="Requested Meals"
-        address="requested-meals"
+        address="my-request"
       />
       <MenuItem
         icon={BsFingerprint}

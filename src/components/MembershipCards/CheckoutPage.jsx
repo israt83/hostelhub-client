@@ -19,7 +19,7 @@
 import { useParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from '../Form/CheckoutForm';
+
 
 
 // Load Stripe with your publishable key
@@ -36,7 +36,7 @@ const CheckoutPage = () => {
       
       {/* Wrap your CheckoutForm in the Elements provider */}
       <Elements stripe={stripePromise}>
-        <CheckoutForm />
+        {/* <CheckoutForm /> */}
       </Elements>
     </div>
   );

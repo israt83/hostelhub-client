@@ -2,11 +2,7 @@
 
 
 export const categories = [
-  {
-    label: 'All Meals',
-    
-    description: 'All available meals!',
-  },
+  
   {
     label: 'Breakfast',
     

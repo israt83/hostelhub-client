@@ -247,7 +247,10 @@ const Navbar = () => {
             <div className="relative flex items-center gap-3">
               {/* Notification Icon */}
               <div className="hidden md:block cursor-pointer">
+                <div className="flex">
                 <AiOutlineBell size={24} />
+                {/* <p className="">(+0)</p> */}
+                </div>
               </div>
 
 

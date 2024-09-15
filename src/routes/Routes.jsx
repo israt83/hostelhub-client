@@ -9,13 +9,13 @@ import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
 import Statistics from '../pages/Dashboard/Common/Statistics'
 
-import MyListings from '../pages/Dashboard/Host/MyListings'
+
 import Profile from '../pages/Dashboard/Common/Profile'
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
 import AdminRoute from './AdminRoute'
-import HostRoute from './HostRoute'
-import MyBookings from '../pages/Dashboard/Guest/MyBookings'
-import ManageBookings from '../pages/Dashboard/Host/ManageBookings'
+
+
+
 import MealDetails from '../pages/MealDetails/MealDetails'
 import AddMeal from '../pages/Dashboard/Admin/AddMeal'
 import AllMeals from '../components/AllMeals/AllMeals'
@@ -23,6 +23,10 @@ import AllMeal from '../pages/Dashboard/Admin/AllMeal'
 import CheckoutPage from '../components/MembershipCards/CheckoutPage'
 import UpcomingMeals from '../components/UpcomingMeals/UpcomingMeals'
 import Reviews from '../pages/MealDetails/Reviews'
+
+import GuestRoute from './GuestRoute'
+import MyRequest from '../pages/Dashboard/Guest/MyRequest'
+import ManageServeMeal from '../pages/Dashboard/Admin/ManageServeMeal'
 
 
 export const router = createBrowserRouter([
@@ -84,26 +88,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // {
-      //   path: 'add-room',
-      //   element: (
-      //     <PrivateRoute>
-      //       <HostRoute>
-      //         <AddRoom />
-      //       </HostRoute>
-      //     </PrivateRoute>
-      //   ),
-      // },
-      {
-        path: 'my-listings',
-        element: (
-          <PrivateRoute>
-            <HostRoute>
-              <MyListings />
-            </HostRoute>
-          </PrivateRoute>
-        ),
-      },
+    
       {
         path: 'manage-users',
         element: (
@@ -135,20 +120,22 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'my-requested-meals',
+        path: 'my-request',
         element: (
           <PrivateRoute>
-            <MyBookings />
+         <GuestRoute>
+          <MyRequest></MyRequest>
+         </GuestRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: 'manage-bookings',
+        path: 'manage-serve-meal',
         element: (
           <PrivateRoute>
-            <HostRoute>
-              <ManageBookings />
-            </HostRoute>
+            <AdminRoute>
+              <ManageServeMeal />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
