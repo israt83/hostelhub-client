@@ -40,12 +40,12 @@ const HostModal = ({ closeModal, isOpen, modalHandler }) => {
                   as='h3'
                   className='text-lg font-medium text-center leading-6 text-gray-900'
                 >
-                  Become A Host!
+                  Become A Admin!
                 </DialogTitle>
                 <div className='mt-2'>
                   <p className='text-sm text-gray-500'>
                     Please read all the terms & conditions before becoming a
-                    host.
+                    admin.
                   </p>
                 </div>
                 <hr className='mt-8 ' />

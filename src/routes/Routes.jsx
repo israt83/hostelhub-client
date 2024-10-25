@@ -7,7 +7,7 @@ import SignUp from '../pages/SignUp/SignUp'
 
 import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
-import Statistics from '../pages/Dashboard/Common/Statistics'
+
 
 
 import Profile from '../pages/Dashboard/Common/Profile'
@@ -20,13 +20,18 @@ import MealDetails from '../pages/MealDetails/MealDetails'
 import AddMeal from '../pages/Dashboard/Admin/AddMeal'
 import AllMeals from '../components/AllMeals/AllMeals'
 import AllMeal from '../pages/Dashboard/Admin/AllMeal'
-import CheckoutPage from '../components/MembershipCards/CheckoutPage'
+
 import UpcomingMeals from '../components/UpcomingMeals/UpcomingMeals'
-import Reviews from '../pages/MealDetails/Reviews'
 
 import GuestRoute from './GuestRoute'
 import MyRequest from '../pages/Dashboard/Guest/MyRequest'
 import ManageServeMeal from '../pages/Dashboard/Admin/ManageServeMeal'
+import MyReview from '../pages/Dashboard/Guest/MyReview'
+import AllReviews from '../pages/Dashboard/Admin/AllReviews'
+import UpcomingMeal from '../pages/Dashboard/Admin/UpcomingMeal'
+import PaymentSuccess from '../components/MembershipCards/PaymentSuccess'
+import PaymentHistory from '../pages/Dashboard/Guest/PaymentHistory'
+
 
 
 export const router = createBrowserRouter([
@@ -52,26 +57,27 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: '/complete',
+        element: (
+          <PrivateRoute>
+            <PaymentSuccess></PaymentSuccess>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: '/upcoming-meals',
         element: <UpcomingMeals/>,
       },
       {
-        path: '/meals/:id/review',
-        element: <Reviews/>,
+        path: '/upcoming-meals/:id',
+        element: <UpcomingMeals/>,
       },
-      {
-        path: '/checkout/:package_name',
-        element: (
-          <PrivateRoute>
-            <CheckoutPage/>
-          </PrivateRoute>
-        ),
-      },
+      
+     
     ],
   },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },
-
   {
     path: '/dashboard',
     element: (
@@ -80,14 +86,7 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      {
-        index: true,
-        element: (
-          <PrivateRoute>
-            <Statistics />
-          </PrivateRoute>
-        ),
-      },
+   
     
       {
         path: 'manage-users',
@@ -120,11 +119,51 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: 'all-reviews',
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AllReviews/>
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'upcoming-meal',
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <UpcomingMeal/>
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: 'my-request',
         element: (
           <PrivateRoute>
          <GuestRoute>
           <MyRequest></MyRequest>
+         </GuestRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'my-reviews',
+        element: (
+          <PrivateRoute>
+         <GuestRoute>
+          <MyReview></MyReview>
+         </GuestRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'payment-history',
+        element: (
+          <PrivateRoute>
+         <GuestRoute>
+          <PaymentHistory></PaymentHistory>
          </GuestRoute>
           </PrivateRoute>
         ),

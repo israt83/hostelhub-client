@@ -1,11 +1,24 @@
 
 
 
+
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const DeleteModal = ({ closeModal, isOpen, handleDelete, id }) => {
+const ReviewModal = ({ closeModal, isOpen, handleReviewSubmit, id }) => {
+  const [review, setReview] = useState('');
+
+  const handleSubmit = () => {
+    if (review.trim()) {
+      handleReviewSubmit(id, review);
+      setReview(''); // Clear the input field after submitting
+      closeModal();
+    } else {
+      alert('Please enter a valid review!');
+    }
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -37,31 +50,31 @@ const DeleteModal = ({ closeModal, isOpen, handleDelete, id }) => {
                   as='h3'
                   className='text-lg font-medium leading-6 text-gray-900'
                 >
-                  Are you sure?
+                  Write a Review
                 </Dialog.Title>
                 <div className='mt-2'>
-                  <p className='text-sm text-gray-500'>
-                    You cannot undo once it&apos;s done!
-                  </p>
+                  <textarea
+                    className='w-full p-2 border rounded'
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)}
+                    placeholder='Write your review here...'
+                  />
                 </div>
-                <hr className='mt-8' />
-                <div className='flex mt-2 justify-around'>
+
+                <div className='flex mt-4 justify-end gap-2'>
                   <button
-                    onClick={() => {
-                      handleDelete(id);
-                      closeModal();
-                    }}
+                    onClick={handleSubmit}
                     type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
                   >
-                    Yes
+                    Submit
                   </button>
                   <button
                     type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
                     onClick={closeModal}
                   >
-                    No
+                    Cancel
                   </button>
                 </div>
               </Dialog.Panel>
@@ -73,11 +86,11 @@ const DeleteModal = ({ closeModal, isOpen, handleDelete, id }) => {
   );
 };
 
-DeleteModal.propTypes = {
+ReviewModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  handleDelete: PropTypes.func.isRequired,
+  handleReviewSubmit: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
 };
 
-export default DeleteModal;
+export default ReviewModal;

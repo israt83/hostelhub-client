@@ -157,48 +157,216 @@
 
 // export default Navbar;
 
+// import Container from "../Container";
+// import { AiOutlineBell } from "react-icons/ai";
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
+// import useAuth from "../../../hooks/useAuth";
+// import avatarImg from "../../../assets/images/placeholder.jpg";
+// import HostModal from "../../Modal/HostRequestModal";
+// import useAxiosSecure from "../../../hooks/useAxiosSecure";
+// import toast from "react-hot-toast";
+
+// const Navbar = () => {
+//   const axiosSecure = useAxiosSecure();
+//   const { user, logOut } = useAuth();
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   // for modal
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const closeModal = () => {
+//     setIsModalOpen(false);
+//   };
+//   const modalHandler = async () => {
+//     console.log("I want to be a host");
+//     try {
+//       const currentUser = {
+//         email: user?.email,
+//         role: "guest",
+//         status: "Requested",
+//       };
+//       const { data } = await axiosSecure.put(`/user`, currentUser);
+//       console.log(data);
+//       if (data.modifiedCount > 0) {
+//         toast.success("Success! Please wait for admin confirmation");
+//       } else {
+//         toast.success("Please!, Wait for admin approval👊");
+//       }
+//     } catch (err) {
+//       console.log(err);
+//       toast.error(err.message);
+//     } finally {
+//       closeModal();
+//     }
+//   };
+
+//   return (
+//     <div className="fixed w-full bg-white z-10 shadow-sm">
+//       <div className="py-4 border-b-[1px]">
+//         <Container>
+//           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
+//             {/* Logo */}
+//             <Link to="/">
+//               <div className="flex">
+//                 <img
+//                   src="src/assets/images/logo.png"
+//                   alt="logo"
+//                   width="180"
+//                   height="150"
+//                 />
+//                 <p className="-ml-12 mt-3 text-2xl text-black uppercase">
+//                   <span className="text-4xl text-orange-600">H</span>ostel
+//                   <span className="text-4xl text-orange-600">H</span>ub
+//                 </p>
+//               </div>
+//             </Link>
+
+//             {/* Centered Navigation Links */}
+//             <div className="hidden md:flex flex-1 justify-center">
+//               <Link
+//                 to="/"
+//                 className="mx-4 text-sm font-semibold hover:underline"
+//               >
+//                 Home
+//               </Link>
+//               <Link
+//                 to="/meals"
+//                 className="mx-4 text-sm font-semibold hover:underline"
+//               >
+//                 Meals
+//               </Link>
+//               <Link
+//                 to="/upcoming-meals"
+//                 className="mx-4 text-sm font-semibold hover:underline"
+//               >
+//                 Upcoming Meals
+//               </Link>
+//             </div>
+
+//             {/* Right Side */}
+//             <div className="relative flex items-center gap-3">
+//               {/* Notification Icon */}
+//               <div className="hidden md:block cursor-pointer">
+//                 <div className="flex">
+//                   <AiOutlineBell size={24} />
+//                   <sup className="text-lg">+0</sup>
+//                 </div>
+//               </div>
+
+//               {/* Modal */}
+//               <HostModal
+//                 isOpen={isModalOpen}
+//                 closeModal={closeModal}
+//                 modalHandler={modalHandler}
+//               />
+
+//               {/* Dropdown btn */}
+//               <div
+//                 onClick={() => setIsOpen(!isOpen)}
+//                 className="p-4 md:py-1 md:px-2 flex flex-row items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
+//               >
+//                 {/* <AiOutlineMenu /> */}
+//                 <p> {user ? "" : "Join Us"} </p>
+//                 <div className="hidden md:block">
+//                   {/* Avatar */}
+//                   <img
+//                     className=" object-cover rounded-full h-10 w-10 border-2 border-white"
+//                     referrerPolicy="no-referrer"
+//                     src={user && user.photoURL ? user.photoURL : avatarImg}
+//                     alt="profile"
+//                     height="40"
+//                     width="40"
+//                   />
+//                 </div>
+//               </div>
+
+//               {isOpen && (
+//                 <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[10vw] bg-white overflow-hidden right-0 top-12 text-sm">
+           
+//                   <div className="flex flex-col cursor-pointer">
+//                     <Link
+//                       to="/"
+//                       className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+//                     >
+//                       Home
+//                     </Link>
+//                     <Link
+//                       to="/meals"
+//                       className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+//                     >
+//                       Meals
+//                     </Link>
+//                     <Link
+//                       to="/upcoming-meals"
+//                       className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+//                     >
+//                       Upcoming Meals
+//                     </Link>
+
+//                     {user ? (
+//                       <>
+//                         <Link className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+//                           {user.displayName || "User Name Not Found"}
+//                         </Link>
+//                         <Link
+//                           to="/dashboard"
+//                           className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+//                         >
+//                           Dashboard
+//                         </Link>
+//                         <div
+//                           onClick={logOut}
+//                           className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer"
+//                         >
+//                           Logout
+//                         </div>
+//                       </>
+//                     ) : (
+//                       <>
+//                         <Link
+//                           to="/login"
+//                           className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+//                         >
+//                           Login
+//                         </Link>
+//                         <Link
+//                           to="/signup"
+//                           className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+//                         >
+//                           Sign Up
+//                         </Link>
+//                       </>
+//                     )}
+//                   </div>
+//                 </div>
+//               )}
+//             </div>
+//           </div>
+//         </Container>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+
+
+
 import Container from "../Container";
-import { AiOutlineBell } from "react-icons/ai";
+import { AiOutlineBell, AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import avatarImg from "../../../assets/images/placeholder.jpg";
-import HostModal from "../../Modal/HostRequestModal";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import toast from "react-hot-toast";
+
 
 const Navbar = () => {
-  const axiosSecure = useAxiosSecure();
+
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
-  // for modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const modalHandler = async () => {
-    console.log("I want to be a host");
-    try {
-      const currentUser = {
-        email: user?.email,
-        role: "guest",
-        status: "Requested",
-      };
-      const { data } = await axiosSecure.put(`/user`, currentUser);
-      console.log(data);
-      if (data.modifiedCount > 0) {
-        toast.success("Success! Please wait for admin confirmation");
-      } else {
-        toast.success("Please!, Wait for admin approval👊");
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error(err.message);
-    } finally {
-      closeModal();
-    }
-  };
+
 
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
@@ -214,30 +382,30 @@ const Navbar = () => {
                   width="180"
                   height="150"
                 />
-                <p className="-ml-12 mt-3 text-2xl text-black uppercase">
-                  <span className="text-4xl text-orange-600">H</span>ostel
-                  <span className="text-4xl text-orange-600">H</span>ub
+                <p className="-ml-12 mt-3 text-xl sm:text-2xl text-black uppercase">
+                  <span className="text-3xl sm:text-4xl text-orange-600">H</span>ostel
+                  <span className="text-3xl sm:text-4xl text-orange-600">H</span>ub
                 </p>
               </div>
             </Link>
 
             {/* Centered Navigation Links */}
-            <div className="hidden md:flex flex-1 justify-center">
+            <div className="hidden sm:flex flex-1 justify-center">
               <Link
                 to="/"
-                className="mx-4 text-sm font-semibold hover:underline"
+                className="mx-2 sm:mx-4 text-sm font-semibold hover:underline"
               >
                 Home
               </Link>
               <Link
                 to="/meals"
-                className="mx-4 text-sm font-semibold hover:underline"
+                className="mx-2 sm:mx-4 text-sm font-semibold hover:underline"
               >
                 Meals
               </Link>
               <Link
                 to="/upcoming-meals"
-                className="mx-4 text-sm font-semibold hover:underline"
+                className="mx-2 sm:mx-4 text-sm font-semibold hover:underline"
               >
                 Upcoming Meals
               </Link>
@@ -246,74 +414,49 @@ const Navbar = () => {
             {/* Right Side */}
             <div className="relative flex items-center gap-3">
               {/* Notification Icon */}
-              <div className="hidden md:block cursor-pointer">
+              <div className="hidden sm:block cursor-pointer">
                 <div className="flex">
-                <AiOutlineBell size={24} />
-                {/* <p className="">(+0)</p> */}
+                  <AiOutlineBell size={24} />
+                  <sup className="text-lg">+0</sup>
                 </div>
               </div>
 
+            
 
-              {/* Modal */}
-              <HostModal
-                isOpen={isModalOpen}
-                closeModal={closeModal}
-                modalHandler={modalHandler}
-              />
+              {/* Menu Icon for small screens */}
+              <div className="block sm:hidden cursor-pointer">
+                <AiOutlineMenu size={24} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+              </div>
 
-              {/* Dropdown btn */}
+              {/* Avatar for larger screens */}
               <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-4 md:py-1 md:px-2 flex flex-row items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
+                className="p-4 sm:py-1 sm:px-2 flex flex-row items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
               >
-                {/* <AiOutlineMenu /> */}
-                <p> {user?'':'Join Us'} </p>
-                <div className="hidden md:block">
+                <p> {user ? "" : "Join Us"} </p>
+                <div className="hidden sm:block">
                   {/* Avatar */}
                   <img
-                    className="rounded-full"
+                    className=" object-cover rounded-full h-10 w-10 border-2 border-white"
                     referrerPolicy="no-referrer"
                     src={user && user.photoURL ? user.photoURL : avatarImg}
                     alt="profile"
                     height="40"
                     width="40"
                   />
-                   
                 </div>
               </div>
 
               {isOpen && (
                 <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[10vw] bg-white overflow-hidden right-0 top-12 text-sm">
                   <div className="flex flex-col cursor-pointer">
-                    <Link
-                      to="/"
-                      className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      to="/"
-                      className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                    >
-                      Meals
-                    </Link>
-                    <Link
-                      to="/"
-                      className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                    >
-                      Upcoming Meals
-                    </Link>
-
                     {user ? (
                       <>
-                        <Link
-                          
-                          className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                        >
-                         {user.displayName || "User Name Not Found"}
+                        <Link className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                          {user.displayName || "User Name Not Found"}
                         </Link>
                         <Link
-                          to="/dashboard"
+                          to="/dashboard/profile"
                           className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
                         >
                           Dashboard
@@ -346,6 +489,61 @@ const Navbar = () => {
               )}
             </div>
           </div>
+
+          {/* Dropdown Menu for Small Screens */}
+          {isMenuOpen && (
+            <div className="block sm:hidden mt-4">
+              <Link
+                to="/"
+                className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+              >
+                Home
+              </Link>
+              <Link
+                to="/meals"
+                className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+              >
+                Meals
+              </Link>
+              <Link
+                to="/upcoming-meals"
+                className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+              >
+                Upcoming Meals
+              </Link>
+              {user ? (
+                <>
+                  <Link
+                    to="/dashboard/profile"
+                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  >
+                    Dashboard
+                  </Link>
+                  <div
+                    onClick={logOut}
+                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer"
+                  >
+                    Logout
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
         </Container>
       </div>
     </div>

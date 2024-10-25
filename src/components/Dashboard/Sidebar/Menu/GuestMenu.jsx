@@ -1,6 +1,9 @@
-import { BsFingerprint } from 'react-icons/bs'
+// import { BsFingerprint } from 'react-icons/bs'
 // import { BsFingerprint } from "react-icons/bs"; 
 import { GrUserAdmin } from 'react-icons/gr'
+import { MdReviews } from "react-icons/md";
+import { MdOutlineRequestPage } from "react-icons/md";
+import { MdPayment } from "react-icons/md";
 import { useState } from 'react'
 import MenuItem from './/MenuItem'
 import useRole from '../../../../hooks/useRole'
@@ -18,7 +21,7 @@ const GuestMenu = () => {
     setIsModalOpen(false)
   }
   const modalHandler = async () => {
-    console.log('I want to be a host')
+    console.log('I want to be a admine')
     try {
       const currentUser = {
         email: user?.email,
@@ -42,17 +45,17 @@ const GuestMenu = () => {
   return (
     <>
      <MenuItem
-        icon={BsFingerprint}
+        icon={MdOutlineRequestPage}
         label="Requested Meals"
         address="my-request"
       />
       <MenuItem
-        icon={BsFingerprint}
+        icon={MdReviews}
         label="My Reviews"
         address="my-reviews"
       />
       <MenuItem
-        icon={BsFingerprint}
+        icon={MdPayment}
         label="Payment History"
         address="payment-history"
       />
@@ -64,7 +67,7 @@ const GuestMenu = () => {
         >
           <GrUserAdmin className='w-5 h-5' />
 
-          <span className='mx-4 font-medium'>Become A Host</span>
+          <span className='mx-4 font-medium'>Become A Admin</span>
         </div>
       )}
       {/* Modal */}

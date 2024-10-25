@@ -112,17 +112,7 @@ const MyRequest = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  // Fetch Meal Requests Data
-  // const { data: requests = [], isLoading, refetch } = useQuery({
-  //   queryKey: ['my-request', user?.email],
-  //   queryFn: async () => {
-  //     const { data } = await axiosSecure.get(`/my-request/${user?.email}`);
-  //     console.log('Fetched requests:', data); // Debugging line
-  //     return data;
-  //   },
-  //   enabled: !!user?.email, // Ensure user email is available before fetching
-  // });
-
+  
   const { data: requests = [], isLoading, refetch } = useQuery({
     queryKey: ['my-request', user?.email],
     queryFn: async () => {

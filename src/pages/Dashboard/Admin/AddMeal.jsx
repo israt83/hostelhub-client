@@ -122,7 +122,7 @@ const AddMeal = () => {
     },
     onSuccess: () => {
       toast.success('Meal Added Successfully!')
-      navigate('/dashboard/meals')
+      navigate('/dashboard/all-meal')
       setLoading(false)
     },
   })
@@ -176,6 +176,7 @@ const AddMeal = () => {
       <Helmet>
         <title>Add Meal | Dashboard</title>
       </Helmet>
+      <h2 className="text-2xl font-semibold leading-tight my-3">Add Meal</h2>
       <AddMealForm
         handleSubmit={handleSubmit}
         setImagePreview={setImagePreview}

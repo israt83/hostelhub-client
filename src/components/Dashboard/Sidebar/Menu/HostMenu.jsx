@@ -4,12 +4,12 @@ import MenuItem from './MenuItem'
 const HostMenu = () => {
   return (
     <>
-      <MenuItem icon={BsFillHouseAddFill} label='Add Room' address='add-room' />
-      <MenuItem icon={MdHomeWork} label='My Listings' address='my-listings' />
+      <MenuItem icon={BsFillHouseAddFill} label='Add Meal' address='add-meal' />
+      <MenuItem icon={MdHomeWork} label='My requesting' address='my-requestring' />
       <MenuItem
         icon={MdOutlineManageHistory}
-        label='Manage Bookings'
-        address='manage-bookings'
+        label='Manage Requesting'
+        address='manage-requesting'
       />
     </>
   )

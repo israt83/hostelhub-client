@@ -33,6 +33,7 @@
     "react-router-dom": "^6.23.1",
     "react-spinners": "^0.13.8",
     "react-tabs": "^6.0.2",
+    "react-tooltip": "^5.28.0",
     "sweetalert2": "^11.14.0",
     "swiper": "^11.1.12"
   },

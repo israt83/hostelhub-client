@@ -159,7 +159,7 @@ const AllMeals = () => {
           }
           endMessage={<p className='text-center py-10 '>No more meals to show</p>}
         >
-          <div className="grid grid-cols-3 mt-12 px-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 px-24">
             {meals.map((meal) => (
               <Card key={meal._id} meal={meal} />
             ))}
@@ -171,3 +171,5 @@ const AllMeals = () => {
 };
 
 export default AllMeals;
+
+

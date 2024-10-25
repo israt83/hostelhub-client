@@ -17,7 +17,7 @@ const AdminMenu = () => {
       <MenuItem icon={FaListAlt} label="All Meals" address="all-meal" />
       <MenuItem icon={FaStar} label="All Reviews" address="all-reviews" />
       <MenuItem icon={FaConciergeBell}label="Serve Meals"address="manage-serve-meal"/>
-      <MenuItem icon={FaCalendarAlt}label="Upcoming Meals" address="upcoming-meals"/>
+      <MenuItem icon={FaCalendarAlt}label="Upcoming Meals" address="upcoming-meal"/>
     </>
   );
 };
