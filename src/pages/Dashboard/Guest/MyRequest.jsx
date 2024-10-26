@@ -112,17 +112,28 @@ const MyRequest = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  
-  const { data: requests = [], isLoading, refetch } = useQuery({
-    queryKey: ['my-request', user?.email],
-    queryFn: async () => {
-      console.log("Fetching requests for email:", user?.email); // Debugging line
-      const { data } = await axiosSecure.get(`/my-request/${user?.email}`);
-      console.log('Fetched requests:', data); // Debugging line
-      return data;
-    },
-    enabled: !!user?.email,
-  });
+  // Ensure that axiosSecure uses the correct GET route for fetching requests by email
+const { data: requests = [], isLoading, refetch } = useQuery({
+  queryKey: ['my-request', user?.email],
+  queryFn: async () => {
+    console.log("Fetching requests for email:", user?.email); // Debugging line
+    const { data } = await axiosSecure.get(`/my-request/${user?.email}`); // Correct GET route
+    console.log('Fetched requests:', data); // Debugging line
+    return data;
+  },
+  enabled: !!user?.email,
+});
+
+  // const { data: requests = [], isLoading, refetch } = useQuery({
+  //   queryKey: ['my-request', user?.email],
+  //   queryFn: async () => {
+  //     console.log("Fetching requests for email:", user?.email); // Debugging line
+  //     const { data } = await axiosSecure.get(`/my-request/${user?.email}`);
+  //     console.log('Fetched requests:', data); // Debugging line
+  //     return data;
+  //   },
+  //   enabled: !!user?.email,
+  // });
   
 
   if (isLoading) return <LoadingSpinner />;

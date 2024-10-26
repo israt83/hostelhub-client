@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
-import { BsFingerprint, BsFillHouseAddFill } from "react-icons/bs";
-import { GrUserAdmin } from "react-icons/gr";
-import { MdHomeWork } from "react-icons/md";
+// import { BsFingerprint, BsFillHouseAddFill } from "react-icons/bs";
+// import { GrUserAdmin } from "react-icons/gr";
+// import { MdHomeWork } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+// import { BsGraphUp } from "react-icons/bs";
+// import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import useRole from "../../../hooks/useRole";
@@ -14,7 +14,7 @@ import MenuItem from "./Menu/MenuItem";
 import HostMenu from "./Menu/HostMenu";
 import AdminMenu from "./Menu/AdminMenu";
 import GuestMenu from "./Menu/GuestMenu";
-
+import logo from "../../../assets/images/logo.png";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
@@ -27,7 +27,6 @@ const Sidebar = () => {
     setActive(!isActive);
   };
 
-
   return (
     <>
       {/* Small Screen Navbar */}
@@ -35,13 +34,19 @@ const Sidebar = () => {
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">
-              <img
-                // className='hidden md:block'
-                src="https://i.ibb.co/4ZXzmq5/logo.png"
-                alt="logo"
-                width="100"
-                height="100"
-              />
+              <div className="flex">
+                <img
+                  // className='hidden md:block'
+                  src={logo}
+                  alt="logo"
+                  width="100"
+                  height="100"
+                />
+                <p className="-ml-6 mt-1 text-xl text-black uppercase">
+                  <span className="text-2xl text-orange-600">H</span>ostel
+                  <span className="text-2xl text-orange-600">H</span>ub
+                </p>
+              </div>
             </Link>
           </div>
         </div>
@@ -66,12 +71,7 @@ const Sidebar = () => {
               {/* Logo */}
               <Link to="/">
                 <div className="flex -ml-8">
-                  <img
-                    src="src/assets/images/logo.png"
-                    alt="logo"
-                    width="120"
-                    height="100"
-                  />
+                  <img src={logo} alt="logo" width="120" height="100" />
                   <p className="-ml-6 mt-1 text-xl text-black uppercase">
                     <span className="text-2xl text-orange-600">H</span>ostel
                     <span className="text-2xl text-orange-600">H</span>ub
@@ -83,11 +83,8 @@ const Sidebar = () => {
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
-            
-
             {/*  Menu Items */}
             <nav>
-              
               {role === "guest" && <GuestMenu />}
               {role === "host" ? (
                 toggle ? (

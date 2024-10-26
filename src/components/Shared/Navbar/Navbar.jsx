@@ -358,6 +358,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import avatarImg from "../../../assets/images/placeholder.jpg";
+import logo from "../../../assets/images/logo.png";
 
 
 const Navbar = () => {
@@ -377,7 +378,7 @@ const Navbar = () => {
             <Link to="/">
               <div className="flex">
                 <img
-                  src="src/assets/images/logo.png"
+                  src={logo}
                   alt="logo"
                   width="180"
                   height="150"
@@ -495,19 +496,19 @@ const Navbar = () => {
             <div className="block sm:hidden mt-4">
               <Link
                 to="/"
-                className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                className="block  py-1 hover:bg-neutral-100 transition font-medium"
               >
                 Home
               </Link>
               <Link
                 to="/meals"
-                className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                className="block  py-1 hover:bg-neutral-100 transition font-medium"
               >
                 Meals
               </Link>
               <Link
                 to="/upcoming-meals"
-                className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                className="block  py-1 hover:bg-neutral-100 transition font-medium"
               >
                 Upcoming Meals
               </Link>
@@ -515,13 +516,13 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/dashboard/profile"
-                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                    className="block  py-1 hover:bg-neutral-100 transition font-medium"
                   >
                     Dashboard
                   </Link>
                   <div
                     onClick={logOut}
-                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer"
+                    className="block  py-1 hover:bg-neutral-100 transition font-medium cursor-pointer"
                   >
                     Logout
                   </div>
@@ -530,13 +531,13 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                    className="block  py-1 hover:bg-neutral-100 transition font-medium"
                   >
                     Login
                   </Link>
                   <Link
                     to="/signup"
-                    className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                    className="block  py-1 hover:bg-neutral-100 transition font-medium"
                   >
                     Sign Up
                   </Link>
