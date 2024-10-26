@@ -12,7 +12,7 @@ const ReviewModal = ({ closeModal, isOpen, handleReviewSubmit, id }) => {
   const handleSubmit = () => {
     if (review.trim()) {
       handleReviewSubmit(id, review);
-      setReview(''); // Clear the input field after submitting
+      setReview('');
       closeModal();
     } else {
       alert('Please enter a valid review!');

@@ -350,7 +350,7 @@ const MealDetails = () => {
     const fetchSubscriptions = async () => {
       if (user?.email) {
         try {
-          const response = await axios.get(`http://localhost:8000/user-subscriptions?email=${user.email}`);
+          const response = await axios.get(`https://hostel-management-system-server-six.vercel.app/user-subscriptions?email=${user.email}`);
           setSubscribedPackages(response.data.subscribedPackages || []); // Set the subscribed packages in state
         } catch (error) {
           console.error('Error fetching subscriptions:', error);

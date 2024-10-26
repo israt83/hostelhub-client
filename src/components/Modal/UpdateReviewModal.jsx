@@ -14,18 +14,18 @@ const UpdateReviewModal = ({
   isOpen,
   existingReview,
   handleReviewUpdate,
-  id, // Meal ID
+  id, 
 }) => {
-const [review, setReview] = useState(existingReview?.text || ""); // Initialize with the existing review text
+const [review, setReview] = useState(existingReview?.text || "");
 
 useEffect(() => {
-  setReview(existingReview?.text || ""); // Update state when the existing review changes
+  setReview(existingReview?.text || ""); 
 }, [existingReview]);
 
 const handleSubmit = () => {
   if (review.trim()) {
-    handleReviewUpdate(id, review);  // Pass the meal ID and updated review text
-    closeModal(); // Close modal after submitting
+    handleReviewUpdate(id, review);  
+    closeModal(); 
   } else {
     alert("Please enter a valid review!");
   }
@@ -48,7 +48,7 @@ return (
               <div className="mt-2">
                 <textarea
                   className="w-full p-2 border rounded"
-                  value={review} // Bind textarea to the state
+                  value={review}
                   onChange={(e) => setReview(e.target.value)}
                   placeholder="Update your review..."
                 />
@@ -84,7 +84,7 @@ UpdateReviewModal.propTypes = {
   handleReviewUpdate: PropTypes.func.isRequired,
   reviewId: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  existingReview: PropTypes.object.isRequired, // Contains the review data (text, user, etc.)
+  existingReview: PropTypes.object.isRequired, 
 };
 
 export default UpdateReviewModal;

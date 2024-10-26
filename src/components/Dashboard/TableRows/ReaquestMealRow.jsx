@@ -16,11 +16,10 @@ const ReaquestMealRow = ({ request, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
 
-  // Get logged-in user data from AuthContext
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
 
-  // Delete Meal Request Mutation
+
   const { mutateAsync } = useMutation({
     mutationFn: async (id) => {
       const { data } = await axiosSecure.delete(`/request-meal/${id}`);
@@ -29,7 +28,7 @@ const ReaquestMealRow = ({ request, refetch }) => {
     onSuccess: async () => {
       refetch();
       toast.success('Meal request canceled successfully');
-      // Update meal status to false after canceling
+     
       await axiosSecure.patch(`/meals/status/${request?.mealId}`, {
         status: false,
       });
@@ -59,7 +58,7 @@ const ReaquestMealRow = ({ request, refetch }) => {
         <p className='text-gray-900'>{request?.name}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        {/* Filter reviews by logged-in user's email */}
+        
         {request?.reviews?.filter(review => review.user.email === userEmail).map((review, index) => (
           <div key={index} className="mb-2">
             <p className='text-gray-900'><strong></strong> {review.text}</p>

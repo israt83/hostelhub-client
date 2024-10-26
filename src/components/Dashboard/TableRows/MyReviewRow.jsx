@@ -13,28 +13,25 @@ import DeleteModal from "../../Modal/DeleteModal"; // Import DeleteModal
 
 const MyReviewRow = ({ meal, user, refetch }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // State for Delete Modal
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); 
   const [selectedReview, setSelectedReview] = useState(null);
-  const [reviewIdToDelete, setReviewIdToDelete] = useState(null); // State for review to delete
+  const [reviewIdToDelete, setReviewIdToDelete] = useState(null);
 
-  // Filter reviews to show only those from the logged-in user
+ 
   const userReviews = meal?.reviews?.filter(
     (review) => review?.user?.email === user?.email
   );
 
-  // Open the modal to edit a specific review
   const openModal = (review) => {
     setSelectedReview(review);
     setIsModalOpen(true);
   };
 
-  // Open the DeleteModal for deleting a review
   const openDeleteModal = (reviewId) => {
     setReviewIdToDelete(reviewId);
     setIsDeleteModalOpen(true);
   };
 
-  // Handle review update and refetch the data
   const handleReviewUpdate = async (mealId, updatedReview) => {
     const token = localStorage.getItem("token");
 
@@ -42,8 +39,8 @@ const MyReviewRow = ({ meal, user, refetch }) => {
       await axiosCommon.put(
         `/meals/reviews`,
         {
-          reviewText: updatedReview, // Send the updated review text
-          mealId, // Send the meal ID
+          reviewText: updatedReview,
+          mealId,
         },
         {
           headers: {
@@ -53,7 +50,7 @@ const MyReviewRow = ({ meal, user, refetch }) => {
         }
       );
 
-      refetch(); // Refetch the data after updating
+      refetch();
     } catch (error) {
       console.error("Failed to update review:", error);
     }
@@ -64,14 +61,14 @@ const MyReviewRow = ({ meal, user, refetch }) => {
   
     try {
       await axiosCommon.delete('/meals/reviews', {
-        data: { reviewId, mealId: meal._id }, // Send both reviewId and mealId
+        data: { reviewId, mealId: meal._id }, 
         headers: {
           Authorization: `Bearer ${token}`,
         },
         withCredentials: true,
       });
   
-      refetch(); // Refetch the data after deletion
+      refetch();
     } catch (error) {
       console.error('Failed to delete review:', error);
     }
@@ -128,9 +125,9 @@ const MyReviewRow = ({ meal, user, refetch }) => {
         <UpdateReviewModal
           isOpen={isModalOpen}
           closeModal={() => setIsModalOpen(false)}
-          existingReview={selectedReview} // Pass the selected review
+          existingReview={selectedReview} 
           handleReviewUpdate={handleReviewUpdate}
-          id={meal._id} // Pass the meal ID
+          id={meal._id} 
         />
       )}
 
@@ -139,7 +136,7 @@ const MyReviewRow = ({ meal, user, refetch }) => {
         <DeleteModal
           isOpen={isDeleteModalOpen}
           closeModal={() => setIsDeleteModalOpen(false)}
-          handleDelete={() => handleDeleteReview(reviewIdToDelete)} // Call handleDeleteReview with the selected review ID
+          handleDelete={() => handleDeleteReview(reviewIdToDelete)} 
         />
       )}
     </>

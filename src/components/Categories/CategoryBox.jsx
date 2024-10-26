@@ -45,8 +45,5 @@ const CategoryBox = ({ label }) => {
   );
 };
 
-// CategoryBox.propTypes = {
-//   label: PropTypes.string,
- 
-// }
+
 export default CategoryBox;

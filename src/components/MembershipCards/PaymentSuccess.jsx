@@ -1,38 +1,4 @@
-// import { useEffect } from 'react';
-// import { useSearchParams } from 'react-router-dom';
-// import axios from 'axios';
 
-// const PaymentSuccess = () => {
-//   const [searchParams] = useSearchParams();
-  
-//   useEffect(() => {
-//     const sessionId = searchParams.get('session_id');
-
-//     const savePaymentData = async () => {
-//       try {
-//         if (sessionId) {
-//           // Make a request to the backend to handle the session completion and save the payment data
-//           const response = await axios.get(`http://localhost:8000/complete?session_id=${sessionId}`);
-//           console.log('Payment data saved:', response.data);
-//         }
-//       } catch (error) {
-//         console.error('Error saving payment data:', error);
-//       }
-//     };
-
-//     savePaymentData();
-//   }, [searchParams]);
-
-//   return (
-//     <div>
-//       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG3WWuzWoVxRNRP_KPm4NOqla9pdFKs3y5Gg&s" alt="" />
-//       <h1>Payment Successful</h1>
-//       <p>Thank you for your payment!</p>
-//     </div>
-//   );
-// };
-
-// export default PaymentSuccess;
 
 
 import { useEffect } from 'react';
@@ -48,8 +14,8 @@ const PaymentSuccess = () => {
     const savePaymentData = async () => {
       try {
         if (sessionId) {
-          // Make a request to the backend to handle the session completion and save the payment data
-          const response = await axios.get(`http://localhost:8000/complete?session_id=${sessionId}`);
+          
+          const response = await axios.get(`https://hostel-management-system-server-six.vercel.app/complete?session_id=${sessionId}`);
           console.log('Payment data saved:', response.data);
         }
       } catch (error) {

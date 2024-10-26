@@ -37,10 +37,10 @@ const AllMeals = () => {
     queryKey: ['all-meals', category, priceRange, search],
     queryFn: async () => {
       const { meals: initialMeals, totalMeals: totalMealsCount } = await fetchMeals(1);
-      setMeals(initialMeals); // Set initial meals on load or filters change
-      setTotalMeals(totalMealsCount); // Store total number of meals
-      setPage(1); // Reset page to 1
-      setHasMore(initialMeals.length < totalMealsCount); // Set hasMore based on availability
+      setMeals(initialMeals); 
+      setTotalMeals(totalMealsCount);
+      setPage(1); 
+      setHasMore(initialMeals.length < totalMealsCount); 
       return initialMeals;
     },
     refetchOnWindowFocus: false,
@@ -77,7 +77,7 @@ const AllMeals = () => {
       setMeals((prevMeals) => [...prevMeals, ...newMeals]);
       setPage(nextPage);
       if (meals.length + newMeals.length >= totalMealsCount) {
-        setHasMore(false); // Stop fetching if all meals are loaded
+        setHasMore(false); 
       }
     } else {
       setHasMore(false);

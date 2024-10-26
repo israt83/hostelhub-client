@@ -1,5 +1,4 @@
-// import { BsFingerprint } from 'react-icons/bs'
-// import { BsFingerprint } from "react-icons/bs"; 
+
 import { GrUserAdmin } from 'react-icons/gr'
 import { MdReviews } from "react-icons/md";
 import { MdOutlineRequestPage } from "react-icons/md";

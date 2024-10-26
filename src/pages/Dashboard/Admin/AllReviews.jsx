@@ -8,7 +8,6 @@ import { Helmet } from "react-helmet-async";
 const AllReviews = () => {
   const axiosSecure = useAxiosSecure();
 
-  // Fetch all meal data with reviews count
   const {
     data: meals = [],
     isLoading,
@@ -21,19 +20,7 @@ const AllReviews = () => {
     },
   });
 
-//   const deleteMutation = useMutation({
-//     mutationFn: async (mealId) => {
-//       await axiosSecure.delete(`/meals/${mealId}`);
-//     },
-//     onSuccess: () => {
-//       refetch();
-//       toast.success("Meal deleted successfully.");
-//     },
-//   });
 
-//   const handleDelete = (mealId) => {
-//     deleteMutation.mutate(mealId);
-//   };
 
   if (isLoading) {
     return <LoadingSpinner />;

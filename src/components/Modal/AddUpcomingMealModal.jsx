@@ -15,8 +15,8 @@ const AddUpcomingMealModal = ({ closeModal, isOpen, addMeal, adminName }) => {
     rating: '',
     ingredients: '',
     description: '',
-    adminName:  '', // Set adminName with the logged-in user's name
-    postTime: format(new Date(), 'PPpp'), // Set the post time to the current time
+    adminName:  '', 
+    postTime: format(new Date(), 'PPpp'), 
   });
 
   const handleChange = (e) => {
@@ -26,11 +26,11 @@ const AddUpcomingMealModal = ({ closeModal, isOpen, addMeal, adminName }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Include adminName and postTime in the meal data
+  
     const mealWithAdminInfo = {
       ...mealData,
-      adminName, // Ensure adminName is passed
-      postTime: format(new Date(), 'PPpp'), // Add the current time as postTime
+      adminName, 
+      postTime: format(new Date(), 'PPpp'), 
     };
     addMeal(mealWithAdminInfo);
     closeModal();
@@ -231,7 +231,7 @@ AddUpcomingMealModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   addMeal: PropTypes.func.isRequired,
-  adminName: PropTypes.string.isRequired, // Added prop for admin name
+  adminName: PropTypes.string.isRequired, 
 };
 
 export default AddUpcomingMealModal;

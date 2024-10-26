@@ -1,7 +1,7 @@
 import { FaUserCog } from "react-icons/fa";
 import MenuItem from "./MenuItem";
 import {
-  // FaUserCog,
+ 
   FaUtensils,
   FaListAlt,
   FaStar,
