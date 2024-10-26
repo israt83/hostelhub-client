@@ -3,6 +3,7 @@ import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 // import toast from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AllReviews = () => {
   const axiosSecure = useAxiosSecure();
@@ -40,6 +41,9 @@ const AllReviews = () => {
 
   return (
     <div className="container mx-auto px-4 sm:px-8">
+       <Helmet>
+        <title>All Reviews | Dashboard</title>
+      </Helmet>
       <div className="py-8">
         <h2 className="text-2xl font-semibold leading-tight">All Reviews</h2>
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">

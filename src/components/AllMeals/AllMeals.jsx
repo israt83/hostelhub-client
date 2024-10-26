@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Card from "../Home/Card";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Helmet } from 'react-helmet-async';
 
 const AllMeals = () => {
   const [category, setCategory] = useState("");
@@ -86,6 +87,9 @@ const AllMeals = () => {
 
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
+       <Helmet>
+        <title>All Meal | Home</title>
+      </Helmet>
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
           <div>

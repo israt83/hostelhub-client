@@ -511,6 +511,7 @@ import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const UpcomingMeals = () => {
   const { user } = useAuth(); 
@@ -567,7 +568,11 @@ const UpcomingMeals = () => {
   };
 
   return (
+    
     <div className="upcoming-meals container mx-auto px-4 sm:px-8 py-8">
+       <Helmet>
+        <title>UpcomingMeal| Home</title>
+      </Helmet>
       <Cover />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-5">
         {meals.map((meal) => (
