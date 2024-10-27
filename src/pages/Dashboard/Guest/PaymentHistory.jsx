@@ -7,6 +7,7 @@ import { FaDollarSign, FaRegCalendarAlt, FaRegCalendarCheck } from "react-icons/
 import { BsFillCartPlusFill } from "react-icons/bs";
 // import { GiPlayerTime } from "react-icons/gi";
 import { axiosSecure } from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const PaymentHistory = () => {
   const { user } = useAuth(); 
@@ -45,7 +46,7 @@ const PaymentHistory = () => {
   }
 
   if (isError || payments.length === 0) {
-    return <p>No payment history found.</p>;
+    return toast.error('You have not payment data .Please  subscribe any package and membership with all features included.');
   }
 
   return (
