@@ -1,6 +1,6 @@
 # HostelHub 
 ### Live Site Link
-- [live site URL](hostel-management-system-ef2f8.web.app)
+- [live site URL](https://hostel-management-system-ef2f8.firebaseapp.com/)
 
 #### Admin Access
 -admin username:Nafi Ahmmed
