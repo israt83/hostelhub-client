@@ -1,38 +1,31 @@
-# HostelHub 
-### Live Site Link
-- [live site URL](https://hostel-management-system-ef2f8.firebaseapp.com/)
-
-#### Admin Access
--admin username:Nafi Ahmmed
-Password: nafi90
 
 
+## HostelHub
+HostelHub is a comprehensive platform tailored for university hostel meal management. It enables students to browse, like, and request meals, while admins can add, update, and manage meal requests and track payment history. Secure authentication, responsive design, and robust admin tools make HostelHub ideal for both students and administrators.
 
-### Key Features
-- Authentication and Authorization: Secure login for admins and students with JWT-based protection for sensitive data and route access.
-- Meal Management: Admins can add, update, and manage meals by categories ( breakfast, lunch, dinner) with detailed information.
-- Subscription Plans: Offers Silver, Gold, and Platinum subscription packages with different benefits for each, including exclusive access to premium features.
-- Review System: Students can post, edit, or delete reviews for meals; admins can monitor and manage reviews.
-- Meal Request Feature: Subscribed students can request meals, sending requests directly to admin with pending status.
-- Upcoming Meals Section: Displays a preview of upcoming meals available to premium users for likes and feedback.
-Infinite Scrolling: Automatically loads more meal cards as users scroll, enhancing the browsing experience.
-- Protected Routes: Only logged-in users with subscriptions can access certain pages, like meal requests and premium meal options.
+## Live site url
+https://hostelhub-1b756.web.app
 
-### NPM Packages Used
-- Express.js: Backend framework for API routes and request handling.
-- MongoDB: Database to manage meal, review, and user data.
-- Mongoose: For data modeling and interactions with MongoDB.
-- Axios: For making API requests between frontend and backend.
-- React Router: For page navigation within the app.
-- Stripe: For handling secure payments and subscription processing.
-- React Query (Tanstack): For data fetching and caching, ensuring smooth data interactions.
-- Tailwind CSS & DaisyUI: For a modern, responsive, and visually appealing UI.
-- React Hook Form: For efficient and controlled form handling.
-- React Toastify: For notifications and feedback on user actions.
-Project Updates
-- Dynamic Package Checkout: Integrated Stripe checkout pages for Silver, Gold, and Platinum packages with dynamic routing.
-- User-Friendly Modals: Implemented interactive modals for actions like borrowing, confirming payments, and deleting reviews.
-- Error Handling: Built error-handling logic, including an interceptor to log out users on authentication errors and redirect to login.
+## Server site repo
+
+
+
+## Admin idp
+- email: hostelhub@gmail.com
+- pass: hostel90
+
+## Key Features
+
+ - Displays upcoming meals: only premium users can like meals.
+ - Admin Meal Management: Add, update meal statuses, and manage requests.
+ - Payment History: Displays payment history with relevant messages.
+
+## Technologies Used
+
+- Frontend: React, Tailwind CSS
+- Backend: Express,JWT
+- Database: MongoDB
+- Authentication: Firebase
 
 
 

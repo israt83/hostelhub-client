@@ -6,6 +6,8 @@ import Meals from '../../components/Home/Meals'
 import MembershipCards from '../../components/MembershipCards/MembershipCards'
 import Contact from '../../components/Contact/Contact'
 
+import Partnership from '../../components/Partnership/Partnership'
+
 const Home = () => {
   return (
     <div>
@@ -20,6 +22,9 @@ const Home = () => {
       <Meals></Meals>
       <MembershipCards></MembershipCards>
       <Contact></Contact>
+      <Partnership></Partnership>
+   
+    
     </div>
   )
 }

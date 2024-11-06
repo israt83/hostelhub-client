@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../Shared/LoadingSpinner";
 
 const UpcomingMeals = () => {
   const { user } = useAuth(); 
@@ -17,7 +18,7 @@ const UpcomingMeals = () => {
   const queryClient = useQueryClient();
 
   const [subscribedPackages, setSubscribedPackages] = useState([]);
-  const [likedMeals, setLikedMeals] = useState({}); // Store liked status per meal
+  const [likedMeals, setLikedMeals] = useState({}); 
 
   useEffect(() => {
     const fetchSubscriptions = async () => {
@@ -33,7 +34,7 @@ const UpcomingMeals = () => {
     fetchSubscriptions();
   }, [user]);
 
-  const { data: meals = [] } = useQuery({
+  const { data: meals = [] ,isLoading } = useQuery({
     queryKey: ["upcomingMeals"],
     queryFn: async () => {
       const { data } = await axiosCommon.get("/upcoming-meals");
@@ -64,7 +65,7 @@ const UpcomingMeals = () => {
       console.error("Error liking meal:", error);
     }
   };
-
+  if (isLoading) return <LoadingSpinner />;
   return (
     
     <div className="upcoming-meals container mx-auto px-4 sm:px-8 py-8">

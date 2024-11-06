@@ -18,7 +18,7 @@ const Profile = () => {
       if (user?.email) {
         try {
           const response = await axios.get(`https://hostel-management-system-server-six.vercel.app/user-subscriptions?email=${user.email}`);
-          setSubscribedPackages(response.data.subscribedPackages); // Set the subscribed packages in state
+          setSubscribedPackages(response.data.subscribedPackages); 
         } catch (error) {
           console.error('Error fetching subscriptions:', error);
         }

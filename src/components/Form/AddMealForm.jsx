@@ -20,7 +20,7 @@ const AddMealForm = ({
                   Meal Title
                 </label>
                 <input
-                  className="w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md "
+                  className="w-full px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-600 rounded-md "
                   name="title"
                   id="title"
                   type="text"
@@ -34,7 +34,7 @@ const AddMealForm = ({
                   Price
                 </label>
                 <input
-                  className="w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md "
+                  className="w-full px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-600 rounded-md "
                   name="price"
                   id="price"
                   type="number"
@@ -49,7 +49,7 @@ const AddMealForm = ({
                   Rating
                 </label>
                 <input
-                  className="w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md "
+                  className="w-full px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-600 rounded-md "
                   name="rating"
                   id="rating"
                   type="number"
@@ -64,7 +64,7 @@ const AddMealForm = ({
                   Post Time
                 </label>
                 <input
-                  className="w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md "
+                  className="w-full px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-600 rounded-md "
                   name="postTime"
                   id="postTime"
                   type="datetime-local"
@@ -79,7 +79,7 @@ const AddMealForm = ({
                 </label>
                 <textarea
                   id="ingredients"
-                  className="block rounded-md focus:rose-300 w-full  px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 "
+                  className="block rounded-md focus:orborder-orange-300 w-full  px-4 py-3 text-gray-800  border border-orange-300 focus:outline-orange-600 "
                   name="ingredients"
                   placeholder="List of ingredients"
                 ></textarea>
@@ -90,7 +90,7 @@ const AddMealForm = ({
                 </label>
                 <select
                   required
-                  className="w-full px-4 py-3 border-rose-300 focus:outline-rose-500 rounded-md"
+                  className="w-full px-4 py-3 border-orange-300 focus:outline-orange-600 rounded-md"
                   name="category"
                 >
                   {categories.map((category) => (
@@ -118,7 +118,7 @@ const AddMealForm = ({
                       accept="image/*"
                       hidden
                     />
-                    <div className="bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500">
+                    <div className="bg-oroutline-orange-600 text-orange-600 border border-orange-600 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-oroutline-orange-600">
                       {imageText.length > 20
                         ? imageText.split(".")[0].slice(0, 15) +
                           "...." +
@@ -139,7 +139,7 @@ const AddMealForm = ({
               </label>
               <textarea
                 id="description"
-                className="block rounded-md focus:rose-300 w-full  px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 "
+                className="block rounded-md focus:orborder-orange-300 w-full  px-4 py-3 text-gray-800  border border-orange-300 focus:outline-orange-600 "
                 name="description"
                 placeholder="Meal description"
               ></textarea>
@@ -151,7 +151,7 @@ const AddMealForm = ({
               </label>
               <textarea
                 id="reviews"
-                className="block rounded-md focus:rose-300 w-full  px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500"
+                className="block rounded-md focus:orborder-orange-300 w-full  px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-600"
                 name="reviews"
                 placeholder="Add your reviews"
               ></textarea>
@@ -162,7 +162,7 @@ const AddMealForm = ({
         <button
           disabled={loading}
           type="submit"
-          className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-rose-500"
+          className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-orange-600"
         >
           {loading ? (
             <TbFidgetSpinner className="animate-spin m-auto" />

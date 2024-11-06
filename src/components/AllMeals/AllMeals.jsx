@@ -91,6 +91,14 @@ const AllMeals = () => {
         <title>All Meal | Home</title>
       </Helmet>
       <div>
+      <h1 className=" text-center text-2xl md:text-3xl font-bold text-[#4b5664] mb-2">
+          Find Your Perfect <span className="text-orange-600">Meal</span>
+        </h1>
+        <p className="text-sm text-center  max-w-screen-sm mx-auto text-[#4b5664] mb-6 ">
+          Explore a wide variety of meal options. Use our search and filter
+          features to narrow down your choices and discover something new and
+          delicious.
+        </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
           <div>
             <select

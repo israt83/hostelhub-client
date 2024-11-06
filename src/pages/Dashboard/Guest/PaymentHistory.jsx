@@ -8,6 +8,7 @@ import { BsFillCartPlusFill } from "react-icons/bs";
 // import { GiPlayerTime } from "react-icons/gi";
 import { axiosSecure } from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 
 const PaymentHistory = () => {
   const { user } = useAuth(); 
@@ -42,7 +43,7 @@ const PaymentHistory = () => {
   const totalMealRequests = requests.length;
 
   if (isLoading) {
-    return <p>Loading payment history...</p>;
+    return <LoadingSpinner></LoadingSpinner>;
   }
 
   if (isError || payments.length === 0) {
