@@ -6,7 +6,7 @@ HostelHub is a comprehensive platform tailored for university hostel meal manage
 ## Live site url
 https://hostelhub-1b756.web.app
 
-## Server site repo
+
 
 
 
