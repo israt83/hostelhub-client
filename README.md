@@ -36,6 +36,7 @@ https://github.com/israt83/hostelhub-server
 - git clone https://github.com/israt83/hostelhub-client.git
 - cd hostelhub
 - npm i
+
 2- Set up Firebase for authentication and paste your own credential in firebase.config file.
 
 3- Clone the server site repo repository:
