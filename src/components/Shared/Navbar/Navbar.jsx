@@ -82,9 +82,9 @@ const Navbar = () => {
               {/* Avatar for larger screens */}
               <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-4 sm:py-1 sm:px-2 flex flex-row items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
+                className=" p-4 sm:py-1 sm:px-2 flex flex-row items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
               >
-                <p> {user ? "" : "Join Us"} </p>
+                <p className="hidden lg:block"> {user ? "" : "Join Us"} </p>
                 <div className="hidden sm:block">
                   {/* Avatar */}
                   <img
@@ -143,7 +143,8 @@ const Navbar = () => {
 
           {/* Dropdown Menu for Small Screens */}
           {isMenuOpen && (
-            <div className="block sm:hidden mt-4">
+            <div  className="absolute rounded-xl shadow-md w-[40vw] md:w-[10vw] bg-white overflow-hidden right-0 top- text-lg pl-2" >
+              <div className="block sm:hidden mt-4">
               <Link
                 to="/"
                 className="block  py-1 hover:bg-neutral-100 transition font-medium"
@@ -193,6 +194,7 @@ const Navbar = () => {
                   </Link>
                 </>
               )}
+            </div>
             </div>
           )}
         </Container>

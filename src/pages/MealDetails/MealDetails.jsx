@@ -510,11 +510,13 @@ const MealDetails = () => {
         <div className="max-w-[2520px] mx-auto xl:px-20 lg:ml-8 md:px-10 sm:px-2 px-4 mt-5 mb-8">
           <div className="flex flex-col gap-6">
             <div>
-              <div className="grid grid-cols-2 space-x-80">
+              <div className="grid grid-cols-2 space-x-20 lg:space-x-80">
                 <Heading title={meal.title} subtitle={meal.location} />
-                <button className="px-3 py-1 mb-2 text-xs text-orange-800 uppercase bg-orange-200 rounded-full dark:bg-orange-300 dark:text-orange-900 ">
-                  <p className="">{meal?.category}</p>
+                
+                <button className="w-20 lg:w-32  lg:py-1 mb-2 text-xs text-orange-800 uppercase bg-orange-200 rounded-3xl  lg:rounded-full dark:bg-orange-300 dark:text-orange-900 ">
+                  <p>{meal?.category}</p>
                 </button>
+              
               </div>
 
               <div className="w-full md:h-full overflow-hidden rounded-xl relative">

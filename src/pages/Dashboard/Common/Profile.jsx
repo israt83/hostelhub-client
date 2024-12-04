@@ -10,6 +10,7 @@ import axios from 'axios';
 
 const Profile = () => {
   const { user, loading } = useAuth() || {};
+  // eslint-disable-next-line no-unused-vars
   const [role, isLoading] = useRole();
   const [subscribedPackages, setSubscribedPackages] = useState([]);
 
@@ -35,7 +36,7 @@ const Profile = () => {
       <Helmet>
         <title>Profile</title>
       </Helmet>
-      <div className='bg-white shadow-lg rounded-2xl w-3/5'>
+      <div className='bg-white shadow-lg rounded-2xl lg:w-3/5'>
         <img
           alt='profile banner'
           src='https://plus.unsplash.com/premium_photo-1667912925305-629794bdb691?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
@@ -61,8 +62,9 @@ const Profile = () => {
             ))}
           </div>
 
-          <p className='mt-2 text-xl font-medium text-gray-800'>
-            User ID: {user?.uid}
+          <p className=' mt-2 lg:text-xl lg:font-medium text-gray-800'>
+            User ID: 
+            <span>{user?.uid}</span>
           </p>
 
           <div className='w-full p-2 mt-4 rounded-lg'>
@@ -78,7 +80,7 @@ const Profile = () => {
                 <span className='font-bold text-black'>{user?.email}</span>
               </p>
 
-              <div>
+              <div className='mt-2'>
                 <button className='bg-[#FF3811] px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#FF3811] block mb-1'>
                   Update Profile
                 </button>
