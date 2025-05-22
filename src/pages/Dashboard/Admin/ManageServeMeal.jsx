@@ -11,16 +11,16 @@ import LoadingSpinner from '../../../components/Shared/LoadingSpinner';
 import ServeMealRow from '../../../components/Dashboard/TableRows/ServeMealRow';
 
 const ManageServeMeal = () => {
-  const { user } = useAuth(); // Get the authenticated user
-  const axiosSecure = useAxiosSecure(); // Secure Axios instance
+  const { user } = useAuth(); 
+  const axiosSecure = useAxiosSecure(); 
 
 
 const { data: requests = [], isLoading, refetch } = useQuery({
     queryKey: ['my-request', user?.email],
     queryFn: async () => {
-      console.log("Fetching requests for email:", user?.email); // Debugging line
+      console.log("Fetching requests for email:", user?.email); 
       const { data } = await axiosSecure.get(`/manage-serve-meal/${user?.email}`);
-      console.log('Fetched requests:', data); // Debugging line
+      console.log('Fetched requests:', data); 
       return data;
     },
     enabled: !!user?.email,
@@ -43,23 +43,23 @@ const { data: requests = [], isLoading, refetch } = useQuery({
               <table className='min-w-full leading-normal'>
               <thead>
                   <tr>
-                    <th className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'>
+                    <th className='px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold'>
                      image
                     </th>
-                    <th className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'>
+                    <th className='px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold'>
                     Title
                     </th>
-                    <th className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'>
+                    <th className='px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold'>
                     user email
                     </th>
-                    <th className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'>
+                    <th className='px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold'>
                     
                     Likes
                     </th>
-                    <th className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'>
+                    <th className='px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold'>
                     status
                     </th>
-                    <th className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'>
+                    <th className='px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold'>
                       Action
                     </th>
                   </tr>

@@ -16,7 +16,7 @@ const AllMeals = () => {
   const [page, setPage] = useState(1);
   const [meals, setMeals] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-  const [totalMeals, setTotalMeals] = useState(0); // Track total available meals
+  const [totalMeals, setTotalMeals] = useState(0);
   
 
   const axiosSecure = useAxiosSecure();

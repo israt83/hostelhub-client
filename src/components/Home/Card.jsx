@@ -4,9 +4,11 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
+
 const Card = ({ meal }) => {
   return (
-    <Link to={`/meals/${meal?._id}`} className='col-span-1 cursor-pointer group'>
+  
+      <Link to={`/meals/${meal?._id}`} className='col-span-1 cursor-pointer group'>
       <div className='flex flex-col items-center'>
         <div className='aspect-square w-56 relative overflow-hidden rounded-xl'>
           <img
@@ -29,6 +31,7 @@ const Card = ({ meal }) => {
         </div>
       </div>
     </Link>
+ 
   )
 }
 

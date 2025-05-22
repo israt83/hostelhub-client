@@ -31,6 +31,7 @@ import AllReviews from '../pages/Dashboard/Admin/AllReviews'
 import UpcomingMeal from '../pages/Dashboard/Admin/UpcomingMeal'
 import PaymentSuccess from '../components/MembershipCards/PaymentSuccess'
 import PaymentHistory from '../pages/Dashboard/Guest/PaymentHistory'
+import PackageUser from '../pages/Dashboard/Admin/PackageUser'
 
 
 
@@ -94,6 +95,16 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <ManageUsers />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'package-user',
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <PackageUser />
             </AdminRoute>
           </PrivateRoute>
         ),

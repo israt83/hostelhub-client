@@ -42,26 +42,26 @@ const ManageUsers = () => {
                     </th> */}
                     <th
                       scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                      className='px-5 py-3 bg-slate-100  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold'
                     >
                       Email
                     </th>
                     <th
                       scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                      className='px-5 py-3 bg-slate-100  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold'
                     >
                       Role
                     </th>
                     <th
                       scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                      className='px-5 py-3 bg-slate-100  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold'
                     >
                       Status
                     </th>
 
                     <th
                       scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                      className='px-5 py-3 bg-slate-100  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold'
                     >
                       Action
                     </th>

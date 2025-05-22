@@ -97,25 +97,25 @@ const AllMeal = () => {
               <table className="min-w-full leading-normal">
                 <thead>
                   <tr>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       Title
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       Likes
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       Reviews
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       Distributor
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       Delete
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       Update
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                    <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                       View
                     </th>
                   </tr>

@@ -7,6 +7,7 @@ import MembershipCards from '../../components/MembershipCards/MembershipCards'
 import Contact from '../../components/Contact/Contact'
 
 import Partnership from '../../components/Partnership/Partnership'
+import Subscribe from '../../components/Subscribe/Subscribe'
 
 const Home = () => {
   return (
@@ -23,7 +24,7 @@ const Home = () => {
       <MembershipCards></MembershipCards>
       <Contact></Contact>
       <Partnership></Partnership>
-   
+   <Subscribe/>
     
     </div>
   )

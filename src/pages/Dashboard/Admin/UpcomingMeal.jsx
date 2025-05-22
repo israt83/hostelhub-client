@@ -14,7 +14,6 @@ const UpcomingMeal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState(null);
 
-  // Initialize the QueryClient
   const queryClient = useQueryClient();
 
   // Fetch all upcoming meals
@@ -32,10 +31,10 @@ const UpcomingMeal = () => {
       await axiosSecure.post("/upcoming-meals", mealData);
       toast("Meal added successfully!");
 
-      // Invalidate the query to refetch the updated list of meals
+     
       queryClient.invalidateQueries("all-upcoming-meals");
 
-      setIsModalOpen(false); // Close the modal after submission
+      setIsModalOpen(false); 
     } catch (error) {
       console.error("Error adding meal: ", error);
     }
@@ -83,22 +82,22 @@ const UpcomingMeal = () => {
             <table className="min-w-full leading-normal">
               <thead>
                 <tr>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                  <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                     Meal Image
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                  <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                     Meal Title
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                  <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                     Price
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                  <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                     Rating
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                  <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                     Category
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
+                  <th className="px-5 py-3 bg-slate-100 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-semibold">
                     Publish Meal
                   </th>
                 </tr>
@@ -125,7 +124,7 @@ const UpcomingMeal = () => {
                     </td>
                     <td className="px-10 py-5 border-b border-gray-200 bg-white text-sm">
                       <p className="text-gray-900 whitespace-no-wrap">
-                        {upcomingMeal.rating}
+                        {upcomingMeal.like}
                       </p>
                     </td>
                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -154,8 +153,8 @@ const UpcomingMeal = () => {
         isOpen={isModalOpen}
         closeModal={() => setIsModalOpen(false)}
         mealInfo={selectedMeal}
-        addMeal={addMeal} // Pass the function here
-        adminName={"Admin Name Here"} // You can replace this with the actual admin name
+        addMeal={addMeal} 
+        adminName={"Admin Name Here"} 
       />
     </div>
   );

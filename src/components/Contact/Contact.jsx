@@ -2,10 +2,15 @@ import { Fade } from "react-awesome-reveal";
 
 const Contact = () => {
   return (
-  <Fade >
-      <section className="bg-white dark:bg-gray-900  max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
+
+      <section data-aos="fade-up"
+        data-aos-duration="1000" className="bg-white dark:bg-gray-900  max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
       <div className="container px-6 py-12 mx-auto">
-        <div className="text-center">
+       <Fade  direction="up"
+              delay={200}
+              cascade={false}
+              triggerOnce={false}>
+         <div className="text-center">
           <p className="font-medium text-orange-600 dark:text-blue-400">
             Contact us
           </p>
@@ -18,8 +23,13 @@ const Contact = () => {
             Our friendly team is always here to chat.
           </p>
         </div>
+       </Fade>
 
-        <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
+        <Fade direction="up"
+              delay={200}
+              cascade={false}
+              triggerOnce={false}>
+          <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex flex-col items-center justify-center text-center">
             <span className="p-3 text-orange-600 rounded-full bg-blue-100/80 dark:bg-gray-800">
               <svg
@@ -112,9 +122,10 @@ const Contact = () => {
             </p>
           </div>
         </div>
+        </Fade>
       </div>
     </section>
-  </Fade>
+  
   );
 };
 

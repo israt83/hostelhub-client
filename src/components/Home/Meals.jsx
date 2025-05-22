@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosCommon from '../../hooks/useAxiosCommon';
 import { useSearchParams } from 'react-router-dom';
 
+
 const Meals = () => {
   const axiosCommon = useAxiosCommon();
   const [params] = useSearchParams();
@@ -22,10 +23,11 @@ const Meals = () => {
   });
 
   if (isLoading) return <LoadingSpinner />;
-  if (error) return <div>Error fetching meals: {error.message}</div>;
+  if (error) return <div className='text-center my-10 text-red-600'>Error fetching meals: {error.message}</div>;
 
   return (
-    <Container>
+
+     <Container>
       {meals && meals.length > 0 ? (
         <div className='pt-12 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8'>
           {meals.slice(0, 6).map(meal => (
@@ -42,6 +44,7 @@ const Meals = () => {
         </div>
       )}
     </Container>
+
   );
 };
 

@@ -3,6 +3,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Fade } from "react-awesome-reveal";
 
 const MembershipCards = () => {
   const packages = [
@@ -88,6 +89,7 @@ const MembershipCards = () => {
           price: pkg.price,
           badge_img: pkg.badge,
           email: user?.email,
+          name: user.displayName, 
         }
       );
       window.location.href = data.url;
@@ -124,8 +126,13 @@ const MembershipCards = () => {
   }, [user]);
 
   return (
-    <div className="mt-16 max-w-[2520px]  mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
-      <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl">
+   
+      <div className="mt-16 max-w-[2520px]  mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
+      <Fade direction="up"
+              delay={200}
+              cascade={false}
+              triggerOnce={false}>
+        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl">
         Upgrade Your Membership
       </h1>
       <p className="text-center py-6 text-gray-500">
@@ -133,6 +140,11 @@ const MembershipCards = () => {
         Choose from our Silver, Gold, or Platinum membership plans, each
         offering unique perks at affordable prices.
       </p>
+      </Fade>
+       <Fade direction="up"
+              delay={300}
+              cascade={false}
+              triggerOnce={false}>
       <div className="flex flex-col md:flex-row gap-4 p-4">
         {packages.map((pkg) => (
           <div
@@ -209,9 +221,11 @@ const MembershipCards = () => {
           </div>
         ))}
       </div>
+      </Fade>
       {/* {loading && <p>Redirecting to Stripe Checkout...</p>}
       {error && <p>Error redirecting to Stripe Checkout: {error.message}</p>} */}
     </div>
+
   );
 };
 

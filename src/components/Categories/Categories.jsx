@@ -1,9 +1,14 @@
 import Container from '../Shared/Container'
 import CategoryBox from './CategoryBox'
 import { categories } from './CategoriesData.js'
+import { Fade } from 'react-awesome-reveal'
 const Categories = () => {
   return (
-    <Container>
+    <Fade direction="up"
+              delay={50}
+              cascade={false}
+              triggerOnce={false}>
+      <Container>
       <h1 className='text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl pt-8'>
         Explore Meals by Category
         </h1>
@@ -17,6 +22,7 @@ const Categories = () => {
 
       </div>
     </Container>
+    </Fade>
   )
 }
 

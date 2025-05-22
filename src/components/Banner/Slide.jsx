@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+
 
 const Slide = ({ image, text }) => {
   return (
