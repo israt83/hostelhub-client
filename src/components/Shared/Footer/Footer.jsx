@@ -31,7 +31,7 @@ export default function Footer() {
                     data-aos="zoom-in-up"
                     data-aos-delay="500 "
                     data-aos-duration="1000"
-                    src="dist/assets/logo-i6_F4eHY.png"
+                    src="https://hostelhub-1b756.web.app/assets/logo-i6_F4eHY.png"
                     alt=""
                     className="h-10 w-28 "
                   />
